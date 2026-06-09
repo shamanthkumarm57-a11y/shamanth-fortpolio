@@ -38,9 +38,13 @@ const NAV_LINKS = [
 
 const SKILLS = [
   { tag: "01", title: "Frontend Development", desc: "Crafting pixel-perfect, responsive interfaces with React, Next.js, and modern CSS. Every interaction is intentional — from micro-animations to layout systems that scale.", accent: "#C8A97E" },
-  { tag: "02", title: "Backend Engineering", desc: "Building robust APIs and server-side logic with Node.js, Express, and RESTful architecture. Clean, scalable code that holds up under real-world load.", accent: "#8FB3A8" },
-  { tag: "03", title: "Database Design", desc: "Structuring data with purpose — PostgreSQL, MongoDB, and Firebase. Schema design, query optimisation, and data modelling that keeps applications fast and reliable.", accent: "#A89BC8" },
-  { tag: "04", title: "UI/UX Sensibility", desc: "Understanding that great software feels as good as it works. Translating design systems into living interfaces — with Figma, Tailwind, and an eye for the details users notice.", accent: "#B8C88F" },
+  { tag: "02", title: "WordPress Development", desc: "Building fast, secure, and easy-to-manage WordPress sites — custom themes, plugins, WooCommerce stores, page builders, and performance tuning for real business results.", accent: "#8FB3A8" },
+  { tag: "03", title: "Webflow Development", desc: "Designing and developing polished Webflow websites with clean structure, responsive layouts, CMS collections, interactions, and handoff-ready builds that clients can update.", accent: "#A89BC8" },
+  { tag: "04", title: "SEO", desc: "Improving search visibility with technical SEO, on-page optimisation, keyword research, site speed fixes, schema markup, and content structure that helps pages rank and convert.", accent: "#B8C88F" },
+  { tag: "05", title: "Digital Marketing", desc: "Growing brands online through content strategy, social media, paid campaigns, email funnels, analytics, and conversion-focused landing pages that turn traffic into leads.", accent: "#C8A97E" },
+  { tag: "06", title: "Backend Engineering", desc: "Building robust APIs and server-side logic with Node.js, Express, and RESTful architecture. Clean, scalable code that holds up under real-world load.", accent: "#8FB3A8" },
+  { tag: "07", title: "Database Design", desc: "Structuring data with purpose — PostgreSQL, MongoDB, and Firebase. Schema design, query optimisation, and data modelling that keeps applications fast and reliable.", accent: "#A89BC8" },
+  { tag: "08", title: "UI/UX Sensibility", desc: "Understanding that great software feels as good as it works. Translating design systems into living interfaces — with Figma, Tailwind, and an eye for the details users notice.", accent: "#B8C88F" },
 ];
 
 const PROJECTS = [
@@ -91,11 +95,127 @@ const PROJECTS = [
 ];
 
 const STACK = [
-  "React", "Next.js", "Node.js", "Express",
-  "TypeScript", "PostgreSQL", "MongoDB", "Firebase",
-  "Tailwind CSS", "Figma", "Git", "REST APIs",
-  "GraphQL", "Docker", "Vercel", "AWS",
+  "React", "Next.js", "WordPress", "Webflow",
+  "SEO", "Digital Marketing", "Google Analytics", "Google Search Console",
+  "Meta Ads", "Content Strategy", "Email Marketing", "WooCommerce",
+  "Node.js", "Express", "TypeScript", "Tailwind CSS",
+  "Figma", "PostgreSQL", "MongoDB", "Vercel",
 ];
+
+const GITHUB_URL = "https://github.com/shamanthkumarm57-a11y";
+const LINKEDIN_URL = "https://www.linkedin.com/in/shamanth-kumar-m-04269724b";
+const RESUME_URL = `${import.meta.env.BASE_URL}Shamanth-Resume.pdf`;
+const EMAIL = "shamanthm727@gmail.com";
+
+const HERO_FLOATS = [
+  { top: "14%", left: "54%", w: 148, h: 96, rot: -10, delay: 0, lines: ["<Portfolio />", "React · Vite"] },
+  { top: "8%", left: "72%", w: 128, h: 82, rot: 8, delay: 1.2, lines: ["{ build() }", "Node.js"] },
+  { top: "28%", left: "66%", w: 118, h: 74, rot: -4, delay: 2.4, lines: ["npm run dev", "localhost"] },
+  { top: "20%", left: "84%", w: 108, h: 68, rot: 12, delay: 0.8, lines: ["git push", "deploy ✓"] },
+];
+
+const CONTAINER = { maxWidth: "1100px", margin: "0 auto", width: "100%" };
+
+function Container({ children, style }) {
+  return <div style={{ ...CONTAINER, ...style }}>{children}</div>;
+}
+
+function Btn({ children, href, onClick, target, rel, light = false, normalCase = false, className = "", style }) {
+  const cls = `site-btn${light ? " site-btn--light" : ""}${normalCase ? " site-btn--normal" : ""} ${className}`.trim();
+  if (href) {
+    return (
+      <a href={href} target={target} rel={rel} className={cls} style={style} onClick={onClick}>
+        {children}
+      </a>
+    );
+  }
+  return (
+    <button type="button" className={cls} style={style} onClick={onClick}>
+      {children}
+    </button>
+  );
+}
+
+function useHeroParallax(containerRef) {
+  const [offset, setOffset] = useState({ x: 0, y: 0 });
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const onMove = (e) => {
+      const rect = el.getBoundingClientRect();
+      setOffset({
+        x: (e.clientX - rect.left) / rect.width * 28 - 14,
+        y: (e.clientY - rect.top) / rect.height * 18 - 9,
+      });
+    };
+    el.addEventListener("mousemove", onMove);
+    return () => el.removeEventListener("mousemove", onMove);
+  }, [containerRef]);
+  return offset;
+}
+
+function HeroSketch() {
+  return (
+    <svg className="hero-sketch" viewBox="0 0 520 360" fill="none" aria-hidden="true">
+      <path className="hero-draw" style={{ animationDelay: "0.2s" }} d="M60 280 H460" stroke="rgba(240,237,230,0.18)" strokeWidth="1.2" />
+      <path className="hero-draw" style={{ animationDelay: "0.5s" }} d="M120 280 V120 H400 V280" stroke="rgba(240,237,230,0.35)" strokeWidth="1.5" />
+      <path className="hero-draw" style={{ animationDelay: "0.8s" }} d="M120 120 H400 L420 140 H400" stroke="rgba(240,237,230,0.35)" strokeWidth="1.5" />
+      <path className="hero-draw" style={{ animationDelay: "1.1s" }} d="M150 155 H370 M150 185 H320 M150 215 H350 M150 245 H290" stroke="rgba(200,169,126,0.45)" strokeWidth="1.2" />
+      <path className="hero-draw" style={{ animationDelay: "1.4s" }} d="M80 80 C120 40, 180 30, 240 50 C300 70, 360 45, 420 70" stroke="rgba(240,237,230,0.2)" strokeWidth="1" />
+      <circle className="hero-draw" style={{ animationDelay: "2s" }} cx="430" cy="95" r="28" stroke="rgba(240,237,230,0.25)" strokeWidth="1.2" />
+      <text x="168" y="108" fill="rgba(240,237,230,0.2)" fontSize="11" letterSpacing="4" fontFamily="Inter, sans-serif">WEB DEV</text>
+    </svg>
+  );
+}
+
+function ResumeModal({ open, onClose }) {
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e) => { if (e.key === "Escape") onClose(); };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [open, onClose]);
+  if (!open) return null;
+  return (
+    <div className="resume-backdrop" style={s.resumeBackdrop} onClick={onClose}>
+      <div className="resume-modal" style={s.resumeModal} onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true" aria-label="Resume">
+        <div style={s.resumeModalTop}>
+          <span style={s.resumeModalTitle}>Shamanth Kumar M — Resume</span>
+          <div style={s.resumeModalActions}>
+            <Btn href={RESUME_URL} target="_blank" rel="noreferrer">Download PDF</Btn>
+            <Btn onClick={onClose}>Close</Btn>
+          </div>
+        </div>
+        <iframe title="Resume" src={`${RESUME_URL}#toolbar=0&navpanes=0`} style={s.resumeFrame} />
+      </div>
+    </div>
+  );
+}
+
+function Reveal({ children, delay = 0, style, className = "", variant = "up" }) {
+  const ref = useRef(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const isMobile = window.matchMedia("(max-width: 1024px)").matches;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setVisible(true); observer.unobserve(el); } },
+      { threshold: isMobile ? 0.06 : 0.12, rootMargin: isMobile ? "0px 0px -16px 0px" : "0px 0px -40px 0px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+  return (
+    <div ref={ref} className={`reveal reveal-${variant}${visible ? " revealed" : ""} ${className}`.trim()} style={{ transitionDelay: `${delay}ms`, ...style }}>
+      {children}
+    </div>
+  );
+}
 
 export default function ShamanthPortfolio() {
   const times = useCityTimes();
@@ -103,8 +223,12 @@ export default function ShamanthPortfolio() {
   const [scrolled, setScrolled] = useState(false);
   const [hoveredSkill, setHoveredSkill] = useState(null);
   const [hoveredProject, setHoveredProject] = useState(null);
-  const [activeProject, setActiveProject] = useState(null);
+  const [heroReady, setHeroReady] = useState(false);
+  const [resumeOpen, setResumeOpen] = useState(false);
   const heroRef = useRef(null);
+  const parallax = useHeroParallax(heroRef);
+
+  const openResume = () => { setMenuOpen(false); setResumeOpen(true); };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -112,29 +236,30 @@ export default function ShamanthPortfolio() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    const timer = setTimeout(() => setHeroReady(true), 120);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div style={s.root}>
       <style>{css}</style>
 
-      {/* NAV */}
-      <nav className="topNav" style={{ ...s.nav, borderBottom: scrolled ? "1px solid #1f1f1f" : "1px solid transparent" }}>
-        <div style={s.navBrand}>
-          <span style={s.brandIcon}>S</span>
-        </div>
-
-        <div className="cityBlock" style={s.cityBlock}>
-          {CITIES.map((c, i) => (
-            <span key={c.label} style={s.cityItem}>
-              <span style={s.cityLabel}>{c.label}</span>
-              <span style={s.cityTime}>{times[i] || "——"}</span>
-            </span>
-          ))}
-        </div>
-
-        <button style={s.menuBtn} onClick={() => setMenuOpen(true)}>Menu</button>
+      <nav className="topNav page-pad" style={{ ...s.nav, borderBottom: scrolled ? "1px solid #1f1f1f" : "1px solid transparent" }}>
+        <Container style={s.navInner}>
+          <div style={s.navBrand}><span style={s.brandIcon}>S</span></div>
+          <div className="cityBlock" style={s.cityBlock}>
+            {CITIES.map((c, i) => (
+              <span key={c.label} style={s.cityItem}>
+                <span style={s.cityLabel}>{c.label}</span>
+                <span style={s.cityTime}>{times[i] || "——"}</span>
+              </span>
+            ))}
+          </div>
+          <button style={s.menuBtn} onClick={() => setMenuOpen(true)}>Menu</button>
+        </Container>
       </nav>
 
-      {/* OVERLAY MENU */}
       <div style={{ ...s.overlay, opacity: menuOpen ? 1 : 0, pointerEvents: menuOpen ? "all" : "none" }}>
         <div style={s.overlayTop}>
           <div style={s.menuTitle}>Menu</div>
@@ -148,211 +273,177 @@ export default function ShamanthPortfolio() {
           ))}
         </nav>
         <div style={s.overlayBottom}>
-          <a href="mailto:shamanthm727@gamail.com" style={s.overlayContact}>emani shamanthm727@gamail.com</a>
+          <p style={s.overlayEmail}>{EMAIL}</p>
+          <div style={s.btnRow}>
+            <Btn href={GITHUB_URL} target="_blank" rel="noreferrer" light>GitHub</Btn>
+            <Btn href={LINKEDIN_URL} target="_blank" rel="noreferrer" light>LinkedIn</Btn>
+            <Btn onClick={openResume} light>Resume</Btn>
+          </div>
           <p style={s.overlayCopy}>© 2024 Shamanth Kumar M</p>
         </div>
       </div>
 
-      {/* HERO */}
-      <section ref={heroRef} className="hero" style={s.hero}>
+      <section ref={heroRef} className={`hero page-pad${heroReady ? " hero-ready" : ""}`} style={s.hero}>
+        <div className="hero-orb hero-orb-a" />
+        <div className="hero-orb hero-orb-b" />
         <div style={s.heroBg} />
-        <div style={s.heroGrid} />
-        <div style={s.heroContent}>
-          <p style={s.heroEyebrow}>
-            <span style={s.eyebrowDot} />
-            Available for freelance & full-time roles
-          </p>
-          <h1 style={s.heroTitle}>
-            Shamanth<br />
-            <span style={s.heroName}>Kumar M</span>
-          </h1>
-          <p style={s.heroRole}>Web Developer</p>
-          <p style={s.heroSub}>
-            I build fast, beautiful, and thoughtful web experiences —
-            from polished interfaces to solid backend systems.
-            Based in Bengaluru, shipping globally.
-          </p>
-          <div style={s.heroCtas}>
-            <a href="#projects" style={s.ctaPrimary}>View Work</a>
-            <a href="#contact" style={s.ctaSecondary}>Let's Talk →</a>
-          </div>
-        </div>
-        <div className="heroMeta" style={s.heroMeta}>
-          <div style={s.metaItem}>
-            <span style={s.metaNum}>3+</span>
-            <span style={s.metaLabel}>Years building</span>
-          </div>
-          <div style={s.metaItem}>
-            <span style={s.metaNum}>20+</span>
-            <span style={s.metaLabel}>Projects shipped</span>
-          </div>
-          <div style={s.metaItem}>
-            <span style={s.metaNum}>∞</span>
-            <span style={s.metaLabel}>Problems solved</span>
-          </div>
-        </div>
-        <div style={s.scrollIndicator}>
-          <span className="scroll-pulse" style={s.scrollLine} />
-        </div>
-      </section>
-
-      {/* ABOUT */}
-      <section id="about" style={s.about}>
-        <div className="aboutInner" style={s.aboutInner}>
-          <div style={s.aboutLeft}>
-            <span style={s.sectionTag}>About</span>
-            <div style={s.avatarBox}>
-              <div style={s.avatar}>
-                <span style={s.avatarInitials}>SM</span>
-              </div>
-              <div style={s.avatarMeta}>
-                <p style={s.avatarName}>Shamanth Kumar M</p>
-                <p style={s.avatarRole}>Web Developer · Bengaluru, IN</p>
-              </div>
-            </div>
-          </div>
-          <div style={s.aboutRight}>
-            <h2 style={s.aboutHeading}>
-              I turn ideas into<br />
-              <span style={s.accentText}>digital products</span><br />
-              people love.
-            </h2>
-            <div style={s.aboutBody}>
-              <p>
-                I'm Shamanth — a full-stack web developer from Bengaluru with a deep curiosity for how the web works and a commitment to making it work better. I care about clean code, thoughtful UX, and shipping things that actually matter.
-              </p>
-              <p>
-                Over the years I've built everything from scrappy side projects to production-grade applications — always with the same drive: understand the problem deeply, design the solution carefully, and execute with precision.
-              </p>
-              <p>
-                When I'm not coding, I'm exploring new technologies, contributing to open source, or sketching out the next thing I want to build.
-              </p>
-            </div>
-            <div style={s.aboutLinks}>
-              <a href="https://github.com" target="_blank" rel="noreferrer" style={s.socialLink}>GitHub ↗</a>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" style={s.socialLink}>LinkedIn ↗</a>
-              <a href="#" style={s.socialLink}>Resume ↗</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SKILLS */}
-      <section id="skills" style={s.skills}>
-        <div style={s.skillsHeader}>
-          <span style={s.sectionTag}>Expertise</span>
-          <p style={s.skillsSub}>The tools and disciplines I bring to every project.</p>
-        </div>
-        <div style={s.skillsList}>
-          {SKILLS.map((sk) => (
-            <div
-              key={sk.tag}
-              className="skillItem"
-              style={{
-                ...s.skillItem,
-                borderTopColor: hoveredSkill === sk.tag ? sk.accent : "#222",
-              }}
-              onMouseEnter={() => setHoveredSkill(sk.tag)}
-              onMouseLeave={() => setHoveredSkill(null)}
-            >
-              <div style={s.skillLeft}>
-                <span style={{ ...s.skillNum, color: sk.accent }}>{sk.tag}</span>
-                <h3 style={s.skillTitle}>{sk.title}</h3>
-              </div>
-              <p style={s.skillDesc}>{sk.desc}</p>
-              <span style={{ ...s.skillArrow, color: hoveredSkill === sk.tag ? sk.accent : "#333" }}>→</span>
+        <div className="hero-grid-anim" style={s.heroGrid} />
+        <div className="hero-float-layer" style={{ transform: `translate3d(${parallax.x}px, ${parallax.y}px, 0)` }}>
+          {HERO_FLOATS.map((card, i) => (
+            <div key={i} className="hero-float-card" style={{ top: card.top, left: card.left, width: card.w, height: card.h, "--rot": `${card.rot}deg`, "--float-delay": `${card.delay}s` }}>
+              <div className="hero-float-dots"><span /><span /><span /></div>
+              {card.lines.map((line) => <p key={line} className="hero-float-line">{line}</p>)}
             </div>
           ))}
         </div>
+        <div className="hero-sketch-wrap" style={{ transform: `translate3d(${parallax.x * -0.4}px, calc(-50% + ${parallax.y * -0.3}px), 0)` }}>
+          <HeroSketch />
+        </div>
+        <Container style={s.heroLayout}>
+          <div className="hero-inner" style={s.heroInner}>
+            <div style={s.heroContent}>
+              <p className="hero-enter" style={{ ...s.heroEyebrow, animationDelay: "0.15s" }}>
+                <span style={s.eyebrowDot} /> Available for freelance & full-time roles
+              </p>
+              <h1 style={s.heroTitle}>
+                <span className="hero-enter hero-title-line" style={{ animationDelay: "0.3s" }}>Shamanth</span>
+                <span className="hero-enter hero-title-line hero-name-wrap" style={{ animationDelay: "0.5s" }}>
+                  <span style={s.heroName}>Kumar M</span>
+                  <span className="hero-sweep" aria-hidden="true" />
+                </span>
+              </h1>
+              <p className="hero-enter" style={{ ...s.heroRole, animationDelay: "0.7s" }}>Web Developer · SEO · Digital Marketing</p>
+              <p className="hero-enter hero-sub" style={{ ...s.heroSub, animationDelay: "0.85s" }}>
+                I build fast, beautiful websites with React, WordPress, and Webflow — plus SEO and digital marketing that help brands grow online. Based in Bengaluru, shipping globally.
+              </p>
+              <div className="hero-enter hero-ctas btn-row" style={{ ...s.heroCtas, animationDelay: "1s" }}>
+                <Btn onClick={openResume}>Resume</Btn>
+                <Btn href="#contact">Let's Talk</Btn>
+              </div>
+            </div>
+            <div className="hero-meta hero-enter" style={{ ...s.heroMeta, animationDelay: "1.15s" }}>
+              <div className="meta-item" style={s.metaItem}><span style={s.metaNum}>3+</span><span style={s.metaLabel}>Years building</span></div>
+              <div className="meta-item" style={s.metaItem}><span style={s.metaNum}>20+</span><span style={s.metaLabel}>Projects shipped</span></div>
+              <div className="meta-item" style={s.metaItem}><span style={s.metaNum}>∞</span><span style={s.metaLabel}>Problems solved</span></div>
+            </div>
+          </div>
+        </Container>
+        <a href="#about" className="hero-scroll-btn" aria-label="Scroll to about"><span className="hero-scroll-ring" /><span className="hero-scroll-chevron">↓</span></a>
+      </section>
 
-        <div style={s.marqueeWrap}>
-          <div className="marquee-track" style={s.marqueeTrack}>
-            {[...STACK, ...STACK].map((t, i) => (
-              <span key={i} style={s.marqueeTag}>{t}</span>
+      <section id="about" className="page-pad section-block" style={s.about}>
+        <Container>
+          <div className="aboutInner" style={s.aboutInner}>
+            <Reveal variant="left" style={s.aboutLeft}>
+              <span style={s.sectionTag}>About</span>
+              <div style={s.avatarBox}>
+                <div style={s.avatar}><span style={s.avatarInitials}>SM</span></div>
+                <div style={s.avatarMeta}>
+                  <p style={s.avatarName}>Shamanth Kumar M</p>
+                  <p style={s.avatarRole}>Web Developer · SEO · Digital Marketing · Bengaluru, IN</p>
+                </div>
+              </div>
+            </Reveal>
+            <Reveal variant="right" delay={100} style={s.aboutRight}>
+              <h2 style={s.aboutHeading}>I turn ideas into<br /><span style={s.accentText}>digital products</span><br />people love.</h2>
+              <div style={s.aboutBody}>
+                <p>I'm Shamanth — a full-stack web developer from Bengaluru with a deep curiosity for how the web works and a commitment to making it work better.</p>
+                <p>Over the years I've built everything from scrappy side projects to production-grade applications — always with the same drive: understand the problem deeply, design the solution carefully, and execute with precision.</p>
+                <p>When I'm not coding, I'm exploring new technologies, contributing to open source, or sketching out the next thing I want to build.</p>
+              </div>
+              <div className="btn-row" style={s.aboutLinks}>
+                <Btn href={GITHUB_URL} target="_blank" rel="noreferrer">GitHub</Btn>
+                <Btn href={LINKEDIN_URL} target="_blank" rel="noreferrer">LinkedIn</Btn>
+                <Btn onClick={openResume}>Resume</Btn>
+              </div>
+            </Reveal>
+          </div>
+        </Container>
+      </section>
+
+      <section id="skills" className="page-pad section-block" style={s.skills}>
+        <Container>
+          <Reveal className="skills-header" style={s.skillsHeader}>
+            <span style={s.sectionTag}>Expertise</span>
+            <p style={s.skillsSub}>Web development, WordPress, Webflow, SEO, digital marketing, and everything needed to launch and grow online.</p>
+          </Reveal>
+          <div style={s.skillsList}>
+            {SKILLS.map((sk, i) => (
+              <Reveal key={sk.tag} delay={i * 80}>
+                <div className="skillItem" style={{ ...s.skillItem, borderTopColor: hoveredSkill === sk.tag ? sk.accent : "#222" }} onMouseEnter={() => setHoveredSkill(sk.tag)} onMouseLeave={() => setHoveredSkill(null)}>
+                  <div style={s.skillLeft}><span style={{ ...s.skillNum, color: sk.accent }}>{sk.tag}</span><h3 style={s.skillTitle}>{sk.title}</h3></div>
+                  <p style={s.skillDesc}>{sk.desc}</p>
+                  <span style={{ ...s.skillArrow, color: hoveredSkill === sk.tag ? sk.accent : "#333" }}>→</span>
+                </div>
+              </Reveal>
             ))}
           </div>
-        </div>
+          <Reveal delay={120} style={s.marqueeWrap}>
+            <div className="marquee-track" style={s.marqueeTrack}>
+              {[...STACK, ...STACK].map((t, i) => <span key={i} style={s.marqueeTag}>{t}</span>)}
+            </div>
+          </Reveal>
+        </Container>
       </section>
 
-      {/* PROJECTS */}
-      <section id="projects" style={s.projects}>
-        <div style={s.projectsHeader}>
-          <span style={s.sectionTag}>Selected Work</span>
-          <h2 style={s.projectsHeading}>Projects that<br /><span style={s.accentText}>define my craft.</span></h2>
-        </div>
-
-        <div style={s.projectList}>
-          {PROJECTS.map((p) => (
-            <div
-              key={p.id}
-              className="projectRow"
-              style={{
-                ...s.projectRow,
-                background: hoveredProject === p.id ? "#111" : "transparent",
-                borderTopColor: hoveredProject === p.id ? p.accent : "#1a1a1a",
-              }}
-              onMouseEnter={() => setHoveredProject(p.id)}
-              onMouseLeave={() => setHoveredProject(null)}
-            >
-              <div style={s.projectMeta}>
-                <span style={{ ...s.projectNum, color: p.accent }}>{p.num}</span>
-                <span style={s.projectYear}>{p.year}</span>
-              </div>
-              <div style={s.projectInfo}>
-                <div style={s.projectTitleRow}>
-                  <h3 style={s.projectTitle}>{p.title}</h3>
-                  <span style={s.projectTag}>{p.tag}</span>
+      <section id="projects" className="page-pad section-block" style={s.projects}>
+        <Container>
+          <Reveal className="projects-header" style={s.projectsHeader}>
+            <span style={s.sectionTag}>Selected Work</span>
+            <h2 style={s.projectsHeading}>Projects that<br /><span style={s.accentText}>define my craft.</span></h2>
+          </Reveal>
+          <div style={s.projectList}>
+            {PROJECTS.map((p, i) => (
+              <Reveal key={p.id} delay={i * 90}>
+                <div className="projectRow" style={{ ...s.projectRow, background: hoveredProject === p.id ? "#111" : "transparent", borderTopColor: hoveredProject === p.id ? p.accent : "#1a1a1a" }} onMouseEnter={() => setHoveredProject(p.id)} onMouseLeave={() => setHoveredProject(null)}>
+                  <div style={s.projectMeta}><span style={{ ...s.projectNum, color: p.accent }}>{p.num}</span><span style={s.projectYear}>{p.year}</span></div>
+                  <div style={s.projectInfo}>
+                    <div style={s.projectTitleRow}><h3 style={s.projectTitle}>{p.title}</h3><span style={s.projectTag}>{p.tag}</span></div>
+                    <p style={s.projectDesc}>{p.desc}</p>
+                    <div style={s.techStack}>{p.tech.map((t) => <span key={t} style={{ ...s.techBadge, borderColor: p.accent + "44" }}>{t}</span>)}</div>
+                  </div>
+                  <a href={p.link} style={{ ...s.projectArrow, color: hoveredProject === p.id ? p.accent : "#333" }} aria-label={`View ${p.title}`}>↗</a>
                 </div>
-                <p style={s.projectDesc}>{p.desc}</p>
-                <div style={s.techStack}>
-                  {p.tech.map((t) => (
-                    <span key={t} style={{ ...s.techBadge, borderColor: p.accent + "44" }}>{t}</span>
-                  ))}
-                </div>
-              </div>
-              <a
-                href={p.link}
-                style={{ ...s.projectArrow, color: hoveredProject === p.id ? p.accent : "#333" }}
-                aria-label={`View ${p.title}`}
-              >
-                ↗
-              </a>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* CONTACT */}
-      <section id="contact" style={s.contact}>
-        <div className="contactInner" style={s.contactInner}>
-          <span style={s.sectionTag}>Contact</span>
-          <h2 style={s.contactHeading}>
-            Have a project in mind?<br />
-            <span style={s.accentText}>Let's build it.</span>
-          </h2>
-          <p style={s.contactSub}>
-            I'm open to freelance projects, full-time opportunities, and interesting collaborations.
-            If you have something worth building, I'd love to hear from you.
-          </p>
-          <div style={s.contactActions}>
-            <a href="mailto:shamanthm727@gamail.com" style={s.emailLink}>
-              emani shamanthm727@gamail.com
-            </a>
-            <div style={s.contactSocials}>
-              <a href="https://github.com" target="_blank" rel="noreferrer" style={s.socialPill}>GitHub</a>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" style={s.socialPill}>LinkedIn</a>
-              <a href="https://twitter.com" target="_blank" rel="noreferrer" style={s.socialPill}>Twitter</a>
-            </div>
+              </Reveal>
+            ))}
           </div>
-        </div>
+        </Container>
       </section>
 
-      {/* FOOTER */}
-      <footer className="footer" style={s.footer}>
-        <span style={s.footerLogo}>SK<span style={{ color: "#C8A97E" }}>.</span></span>
-        <p style={s.footerName}>Shamanth Kumar M · Web Developer · Bengaluru</p>
-        <p style={s.footerCopy}>© 2024 — Built with React</p>
+      <section id="contact" className="page-pad section-block" style={s.contact}>
+        <Container>
+          <Reveal variant="fade" style={s.contactInner}>
+            <span style={s.sectionTag}>Contact</span>
+            <h2 style={s.contactHeading}>Have a project in mind?<br /><span style={s.accentText}>Let's build it.</span></h2>
+            <p style={s.contactSub}>I'm open to freelance projects, full-time opportunities, and interesting collaborations. If you have something worth building, I'd love to hear from you.</p>
+            <div style={s.contactActions}>
+              <Btn href={`mailto:${EMAIL}`} normalCase>{EMAIL}</Btn>
+              <div className="btn-row" style={s.contactSocials}>
+                <Btn href={GITHUB_URL} target="_blank" rel="noreferrer">GitHub</Btn>
+                <Btn href={LINKEDIN_URL} target="_blank" rel="noreferrer">LinkedIn</Btn>
+                <Btn onClick={openResume}>Resume</Btn>
+              </div>
+            </div>
+          </Reveal>
+        </Container>
+      </section>
+
+      <footer className="footer page-pad section-block" style={s.footer}>
+        <Container style={s.footerInner}>
+          <a href="#" style={s.footerLogoLink}>SK<span style={{ color: "#C8A97E" }}>.</span></a>
+          <p style={s.footerName}>Shamanth Kumar M · Web Developer · Bengaluru</p>
+          <div style={s.footerRight}>
+            <div className="btn-row" style={s.footerBtns}>
+              <Btn href={GITHUB_URL} target="_blank" rel="noreferrer">GitHub</Btn>
+              <Btn href={LINKEDIN_URL} target="_blank" rel="noreferrer">LinkedIn</Btn>
+              <Btn onClick={openResume}>Resume</Btn>
+            </div>
+            <p style={s.footerCopy}>© 2024 — Built with React</p>
+          </div>
+        </Container>
       </footer>
+
+      <ResumeModal open={resumeOpen} onClose={() => setResumeOpen(false)} />
     </div>
   );
 }
@@ -367,12 +458,10 @@ const s = {
   },
   nav: {
     position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
-    display: "flex", alignItems: "center", justifyContent: "space-between",
-    padding: "20px 48px",
-    backdropFilter: "blur(16px)",
-    background: "rgba(10,10,10,0.88)",
-    transition: "border-color 0.3s",
+    padding: "20px 0", backdropFilter: "blur(16px)",
+    background: "rgba(10,10,10,0.88)", transition: "border-color 0.3s",
   },
+  navInner: { display: "flex", alignItems: "center", justifyContent: "space-between" },
   logo: {
     color: "#F0EDE6", textDecoration: "none",
     fontSize: "20px", fontWeight: 700, letterSpacing: "-0.02em",
@@ -418,15 +507,18 @@ const s = {
   },
   overlayTag: { fontSize: "13px", color: "#999", fontWeight: 400 },
   overlayBottom: { marginTop: "40px" },
-  overlayContact: { display: "block", color: "#0A0A0A", textDecoration: "none", fontSize: "15px", marginBottom: "8px" },
-  overlayCopy: { fontSize: "12px", color: "#999" },
-  hero: {
-    minHeight: "100vh",
-    display: "flex", alignItems: "flex-end",
-    position: "relative",
-    padding: "0 48px 80px",
-    overflow: "hidden",
-  },
+  overlayEmail: { color: "#0A0A0A", fontSize: "14px", marginBottom: "16px" },
+  overlayCopy: { fontSize: "12px", color: "#999", marginTop: "16px" },
+  btnRow: { display: "flex", flexWrap: "wrap", gap: "12px", alignItems: "center" },
+  resumeBackdrop: { position: "fixed", inset: 0, zIndex: 300, background: "rgba(0,0,0,0.82)", backdropFilter: "blur(8px)", display: "flex", alignItems: "center", justifyContent: "center", padding: "24px" },
+  resumeModal: { width: "min(920px, 100%)", height: "min(88vh, 900px)", background: "#111", border: "1px solid #2a2a2a", borderRadius: "8px", display: "flex", flexDirection: "column", overflow: "hidden", boxShadow: "0 24px 80px rgba(0,0,0,0.55)" },
+  resumeModalTop: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: "16px", padding: "14px 18px", borderBottom: "1px solid #222", background: "#0d0d0d", flexWrap: "wrap" },
+  resumeModalTitle: { fontSize: "13px", letterSpacing: "0.06em", color: "#C8A97E", fontWeight: 600 },
+  resumeModalActions: { display: "flex", alignItems: "center", gap: "12px" },
+  resumeFrame: { width: "100%", flex: 1, border: "none", background: "#1a1a1a" },
+  hero: { minHeight: "100vh", position: "relative", paddingBottom: "80px", overflow: "hidden" },
+  heroLayout: { position: "relative", minHeight: "100vh", display: "flex", alignItems: "flex-end", paddingTop: "88px", width: "100%" },
+  heroInner: { width: "100%", display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: "48px", flexWrap: "wrap" },
   heroBg: {
     position: "absolute", inset: 0,
     background: "radial-gradient(ellipse 70% 60% at 70% 30%, rgba(200,169,126,0.09) 0%, transparent 55%)",
@@ -438,10 +530,10 @@ const s = {
     backgroundSize: "80px 80px",
     pointerEvents: "none",
   },
-  heroContent: { position: "relative", zIndex: 1, paddingTop: "140px", flex: 1 },
+  heroContent: { position: "relative", zIndex: 1, flex: 1 },
   heroEyebrow: {
     fontSize: "11px", letterSpacing: "0.18em", color: "#555",
-    textTransform: "uppercase", marginBottom: "40px",
+    textTransform: "uppercase", marginBottom: "24px",
     display: "flex", alignItems: "center", gap: "10px",
   },
   eyebrowDot: {
@@ -453,8 +545,8 @@ const s = {
   heroTitle: {
     fontSize: "clamp(56px, 10vw, 120px)",
     fontWeight: 700, lineHeight: 0.95,
-    letterSpacing: "-0.04em",
-    margin: "0 0 0",
+    letterSpacing: "-0.04em", margin: "0",
+    display: "flex", flexDirection: "column",
   },
   heroName: { color: "#C8A97E" },
   heroRole: {
@@ -468,44 +560,18 @@ const s = {
     color: "#888", lineHeight: 1.7, fontWeight: 300,
     maxWidth: "480px", marginBottom: "48px",
   },
-  heroCtas: { display: "flex", gap: "20px", alignItems: "center", flexWrap: "wrap" },
-  ctaPrimary: {
-    background: "#C8A97E", color: "#0A0A0A",
-    padding: "15px 36px", textDecoration: "none",
-    fontSize: "13px", fontWeight: 700,
-    letterSpacing: "0.08em",
-  },
-  ctaSecondary: {
-    color: "#888", textDecoration: "none",
-    fontSize: "14px", letterSpacing: "0.05em",
-    borderBottom: "1px solid #333", paddingBottom: "2px",
-  },
-  heroMeta: {
-    position: "absolute", bottom: "80px", right: "48px",
-    display: "flex", flexDirection: "column", gap: "24px",
-    zIndex: 1,
-  },
+  heroCtas: { marginBottom: "8px" },
+  heroMeta: { display: "flex", flexDirection: "column", gap: "24px", flexShrink: 0, zIndex: 1 },
   metaItem: { display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "2px" },
   metaNum: { fontSize: "28px", fontWeight: 700, letterSpacing: "-0.04em", color: "#F0EDE6" },
   metaLabel: { fontSize: "10px", color: "#444", letterSpacing: "0.15em", textTransform: "uppercase" },
-  scrollIndicator: {
-    position: "absolute", bottom: "32px", left: "50%",
-    transform: "translateX(-50%)",
-  },
-  scrollLine: {
-    display: "block", width: "1px", height: "48px",
-    background: "linear-gradient(to bottom, #C8A97E55, transparent)",
-  },
   sectionTag: {
     fontSize: "10px", letterSpacing: "0.22em",
     color: "#555", textTransform: "uppercase",
     display: "block", marginBottom: "32px",
   },
-  about: { padding: "120px 48px", borderTop: "1px solid #1a1a1a" },
-  aboutInner: {
-    maxWidth: "1100px", margin: "0 auto",
-    display: "grid", gridTemplateColumns: "1fr 2fr", gap: "80px",
-  },
+  about: { padding: "120px 0", borderTop: "1px solid #1a1a1a" },
+  aboutInner: { display: "grid", gridTemplateColumns: "1fr 2fr", gap: "80px" },
   aboutLeft: {},
   avatar: {
     width: "80px", height: "80px", borderRadius: "50%",
@@ -530,21 +596,13 @@ const s = {
     fontSize: "16px", lineHeight: 1.75, color: "#888", fontWeight: 300,
     marginBottom: "36px",
   },
-  aboutLinks: { display: "flex", gap: "24px" },
-  socialLink: {
-    color: "#C8A97E", textDecoration: "none",
-    fontSize: "13px", letterSpacing: "0.05em",
-    borderBottom: "1px solid #C8A97E44", paddingBottom: "2px",
-  },
-  skills: {
-    padding: "120px 48px", borderTop: "1px solid #1a1a1a",
-    maxWidth: "1200px", margin: "0 auto",
-  },
+  aboutLinks: {},
+  skills: { padding: "120px 0", borderTop: "1px solid #1a1a1a" },
   skillsHeader: {
     display: "flex", justifyContent: "space-between",
     alignItems: "flex-end", marginBottom: "64px", flexWrap: "wrap", gap: "16px",
   },
-  skillsSub: { color: "#555", fontSize: "13px", maxWidth: "260px", lineHeight: 1.6, margin: 0 },
+  skillsSub: { color: "#555", fontSize: "13px", maxWidth: "360px", lineHeight: 1.6, margin: 0 },
   skillsList: { display: "flex", flexDirection: "column" },
   skillItem: {
     display: "grid", gridTemplateColumns: "260px 1fr 32px",
@@ -564,10 +622,7 @@ const s = {
     color: "#555", fontSize: "12px", letterSpacing: "0.1em",
     whiteSpace: "nowrap", fontWeight: 400,
   },
-  projects: {
-    padding: "120px 48px", borderTop: "1px solid #1a1a1a",
-    maxWidth: "1200px", margin: "0 auto",
-  },
+  projects: { padding: "120px 0", borderTop: "1px solid #1a1a1a" },
   projectsHeader: { marginBottom: "80px" },
   projectsHeading: {
     fontSize: "clamp(40px, 6vw, 72px)",
@@ -577,7 +632,7 @@ const s = {
   projectList: { display: "flex", flexDirection: "column" },
   projectRow: {
     display: "grid", gridTemplateColumns: "80px 1fr 40px",
-    gap: "40px", padding: "40px 24px",
+    gap: "40px", padding: "40px 0",
     borderTop: "1px solid", borderBottom: "1px solid #1a1a1a",
     transition: "background 0.3s, border-color 0.3s", cursor: "default",
     borderRadius: "2px",
@@ -603,11 +658,8 @@ const s = {
     transition: "color 0.3s", justifySelf: "end",
     alignSelf: "center",
   },
-  contact: {
-    padding: "160px 48px", borderTop: "1px solid #1a1a1a",
-    background: "#080808",
-  },
-  contactInner: { maxWidth: "700px", margin: "0 auto" },
+  contact: { padding: "160px 0", borderTop: "1px solid #1a1a1a", background: "#080808" },
+  contactInner: {},
   contactHeading: {
     fontSize: "clamp(40px, 6vw, 72px)",
     fontWeight: 700, letterSpacing: "-0.04em",
@@ -632,14 +684,13 @@ const s = {
     fontSize: "12px", letterSpacing: "0.1em",
     transition: "border-color 0.2s, color 0.2s",
   },
-  footer: {
-    padding: "32px 48px", borderTop: "1px solid #111",
-    display: "grid", gridTemplateColumns: "1fr 1fr 1fr",
-    alignItems: "center",
-  },
-  footerLogo: { fontSize: "18px", fontWeight: 700, letterSpacing: "-0.02em" },
+  footer: { padding: "32px 0", borderTop: "1px solid #111" },
+  footerInner: { display: "grid", gridTemplateColumns: "1fr 1fr 1fr", alignItems: "center" },
+  footerLogoLink: { fontSize: "18px", fontWeight: 700, letterSpacing: "-0.02em", color: "#F0EDE6", textDecoration: "none" },
   footerName: { fontSize: "12px", color: "#444", textAlign: "center" },
-  footerCopy: { fontSize: "12px", color: "#333", textAlign: "right" },
+  footerRight: { display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "12px" },
+  footerBtns: { justifyContent: "flex-end" },
+  footerCopy: { fontSize: "12px", color: "#333", textAlign: "right", margin: 0 },
 };
 
 const css = `
@@ -647,37 +698,97 @@ const css = `
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body { background: #0A0A0A; }
-
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+  .page-pad { padding-left: 48px; padding-right: 48px; }
+  .site-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 12px 22px; border: 1px solid #C8A97E; background: transparent;
+    color: #C8A97E; font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; text-decoration: none; cursor: pointer; font-family: inherit;
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    white-space: nowrap;
   }
-  @keyframes pulse-dot {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.6; transform: scale(1.4); }
+  .site-btn:hover { background: #C8A97E; color: #0A0A0A; opacity: 1; }
+  .site-btn--light { border-color: #0A0A0A; color: #0A0A0A; }
+  .site-btn--light:hover { background: #0A0A0A; color: #F0EDE6; }
+  .site-btn--normal { text-transform: none; letter-spacing: 0.02em; font-weight: 500; font-size: 14px; }
+  .btn-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .reveal { opacity: 0; will-change: opacity, transform; transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1); }
+  .reveal-up { transform: translateY(44px); }
+  .reveal-left { transform: translateX(-40px); }
+  .reveal-right { transform: translateX(40px); }
+  .reveal-fade { transform: translateY(24px) scale(0.97); }
+  .reveal.revealed { opacity: 1; transform: translate(0,0) scale(1); }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes pulse-dot { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.6; transform:scale(1.4); } }
+  .hero-orb { position:absolute; border-radius:50%; pointer-events:none; filter:blur(60px); opacity:0.35; animation:heroOrbDrift 12s ease-in-out infinite; }
+  .hero-orb-a { width:420px; height:420px; top:-80px; right:8%; background:rgba(200,169,126,0.18); }
+  .hero-orb-b { width:280px; height:280px; bottom:10%; left:45%; background:rgba(143,179,168,0.12); animation-delay:-4s; }
+  @keyframes heroOrbDrift { 0%,100% { transform:translate(0,0); } 50% { transform:translate(-24px,18px); } }
+  .hero-grid-anim { animation:heroGridPulse 8s ease-in-out infinite; }
+  @keyframes heroGridPulse { 0%,100% { opacity:0.55; } 50% { opacity:1; } }
+  .hero-float-layer { position:absolute; inset:0; z-index:0; pointer-events:none; transition:transform 0.35s ease-out; }
+  .hero-float-card { position:absolute; border:1px solid rgba(255,255,255,0.08); background:rgba(12,12,12,0.55); backdrop-filter:blur(8px); border-radius:6px; padding:10px 12px; transform:rotate(var(--rot)); animation:heroFloat 7s ease-in-out infinite; animation-delay:var(--float-delay); box-shadow:0 20px 50px rgba(0,0,0,0.35); opacity:0; }
+  .hero-ready .hero-float-card { animation-name:heroFloat,heroCardIn; animation-duration:7s,1s; animation-timing-function:ease-in-out,ease; animation-iteration-count:infinite,1; animation-fill-mode:none,forwards; animation-delay:var(--float-delay),calc(var(--float-delay) + 0.4s); }
+  @keyframes heroFloat { 0%,100% { transform:rotate(var(--rot)) translateY(0); } 50% { transform:rotate(var(--rot)) translateY(-14px); } }
+  @keyframes heroCardIn { from { opacity:0; transform:rotate(var(--rot)) translateY(24px); } to { opacity:1; transform:rotate(var(--rot)) translateY(0); } }
+  .hero-float-dots { display:flex; gap:4px; margin-bottom:8px; }
+  .hero-float-dots span { width:5px; height:5px; border-radius:50%; background:rgba(255,255,255,0.15); }
+  .hero-float-line { margin:0; font-size:10px; line-height:1.5; color:rgba(240,237,230,0.45); font-family:"Courier New",monospace; }
+  .hero-sketch-wrap { position:absolute; right:2%; top:50%; width:min(48vw,520px); z-index:0; pointer-events:none; opacity:0.85; transition:transform 0.35s ease-out; }
+  .hero-sketch { width:100%; height:auto; display:block; }
+  .hero-draw { stroke-dasharray:600; stroke-dashoffset:600; opacity:0; }
+  .hero-ready .hero-draw { animation:heroDraw 2.2s ease forwards; }
+  @keyframes heroDraw { to { stroke-dashoffset:0; opacity:1; } }
+  .hero-enter { opacity:0; transform:translateY(40px); }
+  .hero-ready .hero-enter { animation:heroEnter 0.9s cubic-bezier(0.22,1,0.36,1) forwards; }
+  @keyframes heroEnter { to { opacity:1; transform:translateY(0); } }
+  .hero-title-line { display:block; overflow:hidden; }
+  .hero-name-wrap { position:relative; display:inline-block; width:fit-content; }
+  .hero-sweep { position:absolute; left:-4%; bottom:12%; width:0; height:18%; background:linear-gradient(105deg,transparent,rgba(200,169,126,0.55),transparent); transform:skewX(-18deg); z-index:-1; }
+  .hero-ready .hero-sweep { animation:heroSweep 1.1s cubic-bezier(0.22,1,0.36,1) 1.1s forwards; }
+  @keyframes heroSweep { from { width:0; opacity:0; } to { width:108%; opacity:1; } }
+  .hero-scroll-btn { position:absolute; bottom:32px; left:50%; transform:translateX(-50%); width:44px; height:44px; border-radius:50%; border:1px solid rgba(200,169,126,0.35); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#C8A97E; z-index:2; opacity:0; }
+  .hero-ready .hero-scroll-btn { animation:heroEnter 0.8s ease 1.4s forwards; }
+  .hero-scroll-ring { position:absolute; inset:-3px; border-radius:50%; border:1px solid transparent; border-top-color:rgba(200,169,126,0.6); animation:heroRingSpin 2.4s linear infinite; }
+  @keyframes heroRingSpin { to { transform:rotate(360deg); } }
+  .hero-scroll-chevron { font-size:14px; animation:heroChevronBounce 2s ease-in-out infinite; }
+  @keyframes heroChevronBounce { 0%,100% { transform:translateY(0); opacity:0.5; } 50% { transform:translateY(5px); opacity:1; } }
+  .resume-backdrop { animation:resumeFadeIn 0.25s ease; }
+  .resume-modal { animation:resumeSlideIn 0.35s cubic-bezier(0.22,1,0.36,1); }
+  @keyframes resumeFadeIn { from { opacity:0; } to { opacity:1; } }
+  @keyframes resumeSlideIn { from { opacity:0; transform:translateY(24px) scale(0.98); } to { opacity:1; transform:translateY(0) scale(1); } }
+  a:not(.site-btn):hover { opacity:0.85; }
+  @media (max-width:1024px) {
+    .page-pad { padding-left:24px !important; padding-right:24px !important; }
+    .section-block { padding-top:30px !important; padding-bottom:30px !important; }
+    .hero { padding-bottom:72px !important; }
+    .heroLayout { padding-top:72px !important; min-height:auto !important; }
+    .hero-inner { flex-direction:column !important; align-items:flex-start !important; gap:28px !important; }
+    .hero-meta { width:100% !important; flex-direction:row !important; justify-content:space-between !important; }
+    .hero-meta .meta-item { align-items:flex-start !important; }
+    .hero-ctas { width:100% !important; }
+    .reveal-left,.reveal-right { transform:translateY(36px); }
+    .reveal.revealed.reveal-left,.reveal.revealed.reveal-right { transform:translateY(0); }
   }
-  .scroll-pulse {
-    animation: scrollFade 2s ease-in-out infinite;
-  }
-  @keyframes scrollFade {
-    0%, 100% { opacity: 0.2; }
-    50% { opacity: 0.8; }
-  }
-  a:hover { opacity: 0.8; }
-
-  @media (max-width: 1024px) {
-    section[id] { padding-left: 20px !important; padding-right: 20px !important; }
-    .hero { padding: 100px 20px 60px !important; }
-  }
-
-  @media (max-width: 768px) {
-    nav { padding: 16px 20px !important; flex-wrap: wrap; gap: 14px; }
-    .cityBlock { display: none; }
-    .heroMeta { position: static !important; flex-direction: row !important; justify-content: space-between !important; width: 100% !important; margin-top: 28px !important; }
-    .aboutInner { display: grid !important; grid-template-columns: 1fr !important; gap: 32px !important; }
-    .skillItem { grid-template-columns: 1fr !important; gap: 16px !important; }
-    .projectRow { grid-template-columns: 1fr !important; gap: 16px !important; padding: 28px 16px !important; }
-    .footer { display: flex !important; flex-direction: column !important; gap: 16px !important; text-align: left !important; }
-    .contactInner { max-width: 100% !important; }
+  @media (max-width:768px) {
+    .page-pad { padding-left:20px !important; padding-right:20px !important; }
+    .topNav { padding-top:16px !important; padding-bottom:16px !important; }
+    .cityBlock { display:none; }
+    .hero { padding-bottom:80px !important; }
+    .hero-float-layer { display:none; }
+    .hero-sketch-wrap { width:70vw; right:-10%; opacity:0.35; top:18%; transform:translateY(0) !important; }
+    .heroLayout { padding-top:64px !important; }
+    .hero-sub { margin-bottom:28px !important; }
+    .hero-ctas { display:flex !important; flex-wrap:wrap !important; gap:16px 24px !important; }
+    .hero-meta { margin-top:8px !important; padding-top:20px !important; border-top:1px solid #1a1a1a; }
+    .hero-scroll-btn { bottom:20px !important; }
+    .aboutInner { grid-template-columns:1fr !important; gap:24px !important; }
+    .skillItem { grid-template-columns:1fr !important; gap:12px !important; padding:24px 0 !important; }
+    .projectRow { grid-template-columns:1fr !important; gap:12px !important; padding:24px 0 !important; }
+    .footerInner { display:flex !important; flex-direction:column !important; gap:12px !important; text-align:left !important; }
+    .footerRight { align-items:flex-start !important; }
+    .footerBtns { justify-content:flex-start !important; }
+    .resume-backdrop { padding:12px !important; }
+    .resume-modal { height:92vh !important; }
   }
 `;
