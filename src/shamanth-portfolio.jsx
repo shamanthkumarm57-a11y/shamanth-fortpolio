@@ -785,5 +785,8 @@ const css = `
     .footerBtns { justify-content:flex-start !important; }
     .resume-backdrop { padding:12px !important; }
     .resume-modal { height:92vh !important; }
+    .hero { padding-bottom:80px !important; min-height:70vh !important; }
+
   }
 `;
+
