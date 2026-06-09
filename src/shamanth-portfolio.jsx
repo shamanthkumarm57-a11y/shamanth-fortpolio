@@ -74,7 +74,7 @@ const PROJECTS = [
     num: "03",
     title: "PulseBoard",
     tag: "Analytics Dashboard",
-    year: "2023",
+    year: "2025",
     desc: "A SaaS analytics dashboard for small businesses — visualising revenue, user retention, and funnel data in real time. Custom chart components, JWT auth, and role-based access.",
     tech: ["React", "D3.js", "Firebase", "Node.js", "Chart.js"],
     accent: "#A89BC8",
@@ -85,7 +85,7 @@ const PROJECTS = [
     num: "04",
     title: "MoodCast",
     tag: "Mobile Web App",
-    year: "2023",
+    year: "2026",
     desc: "A daily mood tracking app with journal prompts and weekly insights. Progressive Web App with offline support, local-first storage, and push notifications.",
     tech: ["React", "IndexedDB", "Service Workers", "PWA", "CSS Animations"],
     accent: "#B8C88F",
@@ -104,7 +104,7 @@ const EMAIL = "shamanthm727@gmail.com";
 const HERO_FLOATS = [
   { top: "14%", left: "54%", w: 148, h: 96, rot: -10, delay: 0, lines: ["<Portfolio />", "React · Vite"] },
   { top: "8%", left: "72%", w: 128, h: 82, rot: 8, delay: 1.2, lines: ["{ build() }", "Node.js"] },
-  { top: "28%", left: "66%", w: 118, h: 74, rot: -4, delay: 2.4, lines: ["npm run dev", "localhost"] },
+  { top: "28%", left: "66%", w: 118, h: 74, rot: -4, delay: 2.4, lines: ["sham dev", "localhost"] },
   { top: "20%", left: "84%", w: 108, h: 68, rot: 12, delay: 0.8, lines: ["git push", "deploy ✓"] },
 ];
 
@@ -425,7 +425,7 @@ export default function ShamanthPortfolio() {
       <footer className="footer page-pad section-block" style={s.footer}>
         <Container style={s.footerInner}>
           <a href="#" style={s.footerLogoLink}>Shamanth kumar<span style={{ color: "#C8A97E" }}>.</span></a>
-          <p style={s.footerName}>Shamanth Kumar M · Web Developer · Bengaluru</p>
+          <p style={s.footerName}> Web Developer · Bengaluru</p>
           <div style={s.footerRight}>
           
             <p style={s.footerCopy}>© 2024 — Built with React</p>
