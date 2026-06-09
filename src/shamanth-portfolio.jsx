@@ -95,7 +95,7 @@ const PROJECTS = [
 
 const STACK = [
   "React.js", "Next.js", "JavaScript", "TypeScript", "Node.js", "Express.js", "Python", "Django", "WordPress", "Headless WordPress", "Webflow", "WooCommerce", "HTML5", "CSS3", "Tailwind CSS", "Bootstrap", "Material UI", "GSAP", "REST APIs", "PostgreSQL", "MongoDB", "MySQL", "Firebase", "Git", "GitHub", "Vercel", "Netlify", "Cloudflare", "SEO", "Technical SEO", "Digital Marketing", "Google Analytics", "Google Search Console", "Meta Ads", "Content Strategy", "Email Marketing", "Figma", "Postman", "Responsive Web Design", "Performance Optimization", "Cross-Browser Compatibility", "UI/UX Development", "Agile Methodology"
-
+]
 const GITHUB_URL = "https://github.com/shamanthkumarm57-a11y";
 const LINKEDIN_URL = "https://www.linkedin.com/in/shamanth-kumar-m-04269724b";
 const RESUME_URL = `${import.meta.env.BASE_URL}Shamanth-Resume.pdf`;
