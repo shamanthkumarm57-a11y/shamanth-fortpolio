@@ -429,7 +429,7 @@ export default function ShamanthPortfolio() {
 
       <footer className="footer page-pad section-block" style={s.footer}>
         <Container style={s.footerInner}>
-          <a href="#" style={s.footerLogoLink}>SK<span style={{ color: "#C8A97E" }}>.</span></a>
+          <a href="#" style={s.footerLogoLink}>Shamanth kumar M<span style={{ color: "#C8A97E" }}>.</span></a>
           <p style={s.footerName}>Shamanth Kumar M · Web Developer · Bengaluru</p>
           <div style={s.footerRight}>
             <div className="btn-row" style={s.footerBtns}>
