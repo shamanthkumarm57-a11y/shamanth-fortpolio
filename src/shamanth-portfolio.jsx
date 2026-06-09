@@ -38,13 +38,12 @@ const NAV_LINKS = [
 
 const SKILLS = [
   { tag: "01", title: "Frontend Development", desc: "Crafting pixel-perfect, responsive interfaces with React, Next.js, and modern CSS. Every interaction is intentional — from micro-animations to layout systems that scale.", accent: "#C8A97E" },
-  { tag: "02", title: "WordPress Development", desc: "Building fast, secure, and easy-to-manage WordPress sites — custom themes, plugins, WooCommerce stores, page builders, and performance tuning for real business results.", accent: "#8FB3A8" },
-  { tag: "03", title: "Webflow Development", desc: "Designing and developing polished Webflow websites with clean structure, responsive layouts, CMS collections, interactions, and handoff-ready builds that clients can update.", accent: "#A89BC8" },
-  { tag: "04", title: "SEO", desc: "Improving search visibility with technical SEO, on-page optimisation, keyword research, site speed fixes, schema markup, and content structure that helps pages rank and convert.", accent: "#B8C88F" },
-  { tag: "05", title: "Digital Marketing", desc: "Growing brands online through content strategy, social media, paid campaigns, email funnels, analytics, and conversion-focused landing pages that turn traffic into leads.", accent: "#C8A97E" },
-  { tag: "06", title: "Backend Engineering", desc: "Building robust APIs and server-side logic with Node.js, Express, and RESTful architecture. Clean, scalable code that holds up under real-world load.", accent: "#8FB3A8" },
-  { tag: "07", title: "Database Design", desc: "Structuring data with purpose — PostgreSQL, MongoDB, and Firebase. Schema design, query optimisation, and data modelling that keeps applications fast and reliable.", accent: "#A89BC8" },
-  { tag: "08", title: "UI/UX Sensibility", desc: "Understanding that great software feels as good as it works. Translating design systems into living interfaces — with Figma, Tailwind, and an eye for the details users notice.", accent: "#B8C88F" },
+  { tag: "02", title: "CMS Development", desc: "Building fast, secure, and easy-to-manage webflow and WordPress sites — custom themes, plugins, WooCommerce stores, page builders, and performance tuning for real business results.", accent: "#8FB3A8" },
+  { tag: "03", title: "SEO", desc: "Improving search visibility with technical SEO, on-page optimisation, keyword research, site speed fixes, schema markup, and content structure that helps pages rank and convert.", accent: "#B8C88F" },
+  { tag: "04", title: "Digital Marketing", desc: "Growing brands online through content strategy, social media, paid campaigns, email funnels, analytics, and conversion-focused landing pages that turn traffic into leads.", accent: "#C8A97E" },
+  { tag: "05", title: "Backend Engineering", desc: "Building robust APIs and server-side logic with Node.js, Express, and RESTful architecture. Clean, scalable code that holds up under real-world load.", accent: "#8FB3A8" },
+  { tag: "06", title: "Database Design", desc: "Structuring data with purpose — PostgreSQL, MongoDB, and Firebase. Schema design, query optimisation, and data modelling that keeps applications fast and reliable.", accent: "#A89BC8" },
+  { tag: "07", title: "UI/UX Sensibility", desc: "Understanding that great software feels as good as it works. Translating design systems into living interfaces — with Figma, Tailwind, and an eye for the details users notice.", accent: "#B8C88F" },
 ];
 
 const PROJECTS = [
@@ -98,8 +97,8 @@ const STACK = [
   "React", "Next.js", "WordPress", "Webflow",
   "SEO", "Digital Marketing", "Google Analytics", "Google Search Console",
   "Meta Ads", "Content Strategy", "Email Marketing", "WooCommerce",
-  "Node.js", "Express", "TypeScript", "Tailwind CSS",
-  "Figma", "PostgreSQL", "MongoDB", "Vercel",
+  "Node.js", "Express", "TypeScript", "Tailwind CSS", "Python", "Django","wordpress",
+  "Figma", "PostgreSQL", "MongoDB", "Vercel","webflow",
 ];
 
 const GITHUB_URL = "https://github.com/shamanthkumarm57-a11y";
