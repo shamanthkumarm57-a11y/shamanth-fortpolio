@@ -511,7 +511,7 @@ const s = {
   resumeModalTitle: { fontSize: "13px", letterSpacing: "0.06em", color: "#C8A97E", fontWeight: 600 },
   resumeModalActions: { display: "flex", alignItems: "center", gap: "12px" },
   resumeFrame: { width: "100%", flex: 1, border: "none", background: "#1a1a1a" },
-  hero: { minHeight: "100vh", position: "relative", paddingBottom: "80px", overflow: "hidden" },
+  hero: { minHeight: "70vh", position: "relative", paddingBottom: "80px", overflow: "hidden" },
   heroLayout: { position: "relative", minHeight: "100vh", display: "flex", alignItems: "flex-end", paddingTop: "88px", width: "100%" },
   heroInner: { width: "100%", display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: "48px", flexWrap: "wrap" },
   heroBg: {
