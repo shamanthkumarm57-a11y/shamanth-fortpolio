@@ -321,7 +321,7 @@ export default function ShamanthPortfolio() {
               </div>
             </div>
             <div className="hero-meta hero-enter" style={{ ...s.heroMeta, animationDelay: "1.15s" }}>
-              <div className="meta-item" style={s.metaItem}><span style={s.metaNum}>3+</span><span style={s.metaLabel}>Years building</span></div>
+              <div className="meta-item" style={s.metaItem}><span style={s.metaNum}>2+</span><span style={s.metaLabel}>Years building</span></div>
               <div className="meta-item" style={s.metaItem}><span style={s.metaNum}>20+</span><span style={s.metaLabel}>Projects shipped</span></div>
               <div className="meta-item" style={s.metaItem}><span style={s.metaNum}>∞</span><span style={s.metaLabel}>Problems solved</span></div>
             </div>
