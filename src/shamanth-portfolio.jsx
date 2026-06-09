@@ -429,14 +429,10 @@ export default function ShamanthPortfolio() {
 
       <footer className="footer page-pad section-block" style={s.footer}>
         <Container style={s.footerInner}>
-          <a href="#" style={s.footerLogoLink}>Shamanth kumar M<span style={{ color: "#C8A97E" }}>.</span></a>
+          <a href="#" style={s.footerLogoLink}>Shamanth kumar<span style={{ color: "#C8A97E" }}>.</span></a>
           <p style={s.footerName}>Shamanth Kumar M · Web Developer · Bengaluru</p>
           <div style={s.footerRight}>
-            <div className="btn-row" style={s.footerBtns}>
-              <Btn href={GITHUB_URL} target="_blank" rel="noreferrer">GitHub</Btn>
-              <Btn href={LINKEDIN_URL} target="_blank" rel="noreferrer">LinkedIn</Btn>
-              <Btn onClick={openResume}>Resume</Btn>
-            </div>
+          
             <p style={s.footerCopy}>© 2024 — Built with React</p>
           </div>
         </Container>
