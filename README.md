@@ -2,6 +2,8 @@
 
 Personal portfolio site built with React and Vite.
 
+**Live site:** https://shamanthkumarm57-a11y.github.io/shamanth-fortpolio/
+
 ## Getting started
 
 ```bash
