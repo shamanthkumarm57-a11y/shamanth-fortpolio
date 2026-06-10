@@ -754,8 +754,8 @@ const css = `
     .hero { padding-bottom:72px !important; }
     .heroLayout { padding-top:72px !important; min-height:auto !important; }
     .hero-inner { flex-direction:column !important; align-items:flex-start !important; gap:28px !important; }
-    .hero-meta { width:100% !important; flex-direction:row !important; justify-content:space-between !important; }
-    .hero-meta .meta-item { align-items:flex-start !important; }
+    .hero-meta { width:100% !important; display:grid !important; grid-template-columns:repeat(3, minmax(0, 1fr)) !important; gap:16px !important; justify-items:center !important; }
+    .hero-meta .meta-item { align-items:center !important; text-align:center !important; }
     .hero-ctas { width:100% !important; }
     .reveal-left,.reveal-right { transform:translateY(36px); }
     .reveal.revealed.reveal-left,.reveal.revealed.reveal-right { transform:translateY(0); }
