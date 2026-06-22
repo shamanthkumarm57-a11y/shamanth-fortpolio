@@ -295,8 +295,8 @@ export default function ShamanthPortfolio() {
         </div>
         <Container style={s.heroLayout}>
           <div className="hero-inner" style={s.heroInner}>
-            <div style={s.heroContent}>
-              <p className="hero-enter" style={{ ...s.heroEyebrow, animationDelay: "0.15s" }}>
+            <div className="hero-content" style={s.heroContent}>
+              <p className="hero-enter hero-eyebrow" style={{ ...s.heroEyebrow, animationDelay: "0.15s" }}>
                 <span style={s.eyebrowDot} /> Available for freelance & full-time roles
               </p>
               <h1 style={s.heroTitle}>
@@ -328,9 +328,9 @@ export default function ShamanthPortfolio() {
       <section id="about" className="page-pad section-block" style={s.about}>
         <Container>
           <div className="aboutInner" style={s.aboutInner}>
-            <Reveal variant="left" style={s.aboutLeft}>
+            <Reveal variant="left" className="about-left" style={s.aboutLeft}>
               <span style={s.sectionTag}>About</span>
-              <div style={s.avatarBox}>
+              <div className="avatar-box" style={s.avatarBox}>
                 <div style={s.avatar}><span style={s.avatarInitials}>SM</span></div>
                 <div style={s.avatarMeta}>
                   <p style={s.avatarName}>Shamanth Kumar M</p>
@@ -338,14 +338,14 @@ export default function ShamanthPortfolio() {
                 </div>
               </div>
             </Reveal>
-            <Reveal variant="right" delay={100} style={s.aboutRight}>
+            <Reveal variant="right" delay={100} className="about-right" style={s.aboutRight}>
               <h2 style={s.aboutHeading}>I turn ideas into<br /><span style={s.accentText}>digital products</span><br />people love.</h2>
-              <div style={s.aboutBody}>
+              <div className="about-body" style={s.aboutBody}>
                 <p>I'm Shamanth — a full-stack web developer from Bengaluru with a deep curiosity for how the web works and a commitment to making it work better.</p>
                 <p>Over the years I've built everything from scrappy side projects to production-grade applications — always with the same drive: understand the problem deeply, design the solution carefully, and execute with precision.</p>
                 <p>When I'm not coding, I'm exploring new technologies, contributing to open source, or sketching out the next thing I want to build.</p>
               </div>
-              <div className="btn-row" style={s.aboutLinks}>
+              <div className="btn-row about-links" style={s.aboutLinks}>
                 <Btn href={GITHUB_URL} target="_blank" rel="noreferrer">GitHub</Btn>
                 <Btn href={LINKEDIN_URL} target="_blank" rel="noreferrer">LinkedIn</Btn>
                 <Btn onClick={openResume}>Resume</Btn>
@@ -365,9 +365,9 @@ export default function ShamanthPortfolio() {
             {SKILLS.map((sk, i) => (
               <Reveal key={sk.tag} delay={i * 80}>
                 <div className="skillItem" style={{ ...s.skillItem, borderTopColor: hoveredSkill === sk.tag ? sk.accent : "#222" }} onMouseEnter={() => setHoveredSkill(sk.tag)} onMouseLeave={() => setHoveredSkill(null)}>
-                  <div style={s.skillLeft}><span style={{ ...s.skillNum, color: sk.accent }}>{sk.tag}</span><h3 style={s.skillTitle}>{sk.title}</h3></div>
-                  <p style={s.skillDesc}>{sk.desc}</p>
-                  <span style={{ ...s.skillArrow, color: hoveredSkill === sk.tag ? sk.accent : "#333" }}>→</span>
+                  <div className="skill-left" style={s.skillLeft}><span style={{ ...s.skillNum, color: sk.accent }}>{sk.tag}</span><h3 style={s.skillTitle}>{sk.title}</h3></div>
+                  <p className="skill-desc" style={s.skillDesc}>{sk.desc}</p>
+                  <span className="skill-arrow" style={{ ...s.skillArrow, color: hoveredSkill === sk.tag ? sk.accent : "#333" }}>→</span>
                 </div>
               </Reveal>
             ))}
@@ -390,13 +390,13 @@ export default function ShamanthPortfolio() {
             {PROJECTS.map((p, i) => (
               <Reveal key={p.id} delay={i * 90}>
                 <div className="projectRow" style={{ ...s.projectRow, background: hoveredProject === p.id ? "#111" : "transparent", borderTopColor: hoveredProject === p.id ? p.accent : "#1a1a1a" }} onMouseEnter={() => setHoveredProject(p.id)} onMouseLeave={() => setHoveredProject(null)}>
-                  <div style={s.projectMeta}><span style={{ ...s.projectNum, color: p.accent }}>{p.num}</span><span style={s.projectYear}>{p.year}</span></div>
-                  <div style={s.projectInfo}>
-                    <div style={s.projectTitleRow}><h3 style={s.projectTitle}>{p.title}</h3><span style={s.projectTag}>{p.tag}</span></div>
+                  <div className="project-meta" style={s.projectMeta}><span style={{ ...s.projectNum, color: p.accent }}>{p.num}</span><span style={s.projectYear}>{p.year}</span></div>
+                  <div className="project-info" style={s.projectInfo}>
+                    <div className="project-title-row" style={s.projectTitleRow}><h3 style={s.projectTitle}>{p.title}</h3><span style={s.projectTag}>{p.tag}</span></div>
                     <p style={s.projectDesc}>{p.desc}</p>
-                    <div style={s.techStack}>{p.tech.map((t) => <span key={t} style={{ ...s.techBadge, borderColor: p.accent + "44" }}>{t}</span>)}</div>
+                    <div className="tech-stack" style={s.techStack}>{p.tech.map((t) => <span key={t} style={{ ...s.techBadge, borderColor: p.accent + "44" }}>{t}</span>)}</div>
                   </div>
-                  <a href={p.link} style={{ ...s.projectArrow, color: hoveredProject === p.id ? p.accent : "#333" }} aria-label={`View ${p.title}`}>↗</a>
+                  <a href={p.link} className="project-arrow" style={{ ...s.projectArrow, color: hoveredProject === p.id ? p.accent : "#333" }} aria-label={`View ${p.title}`}>↗</a>
                 </div>
               </Reveal>
             ))}
@@ -406,13 +406,13 @@ export default function ShamanthPortfolio() {
 
       <section id="contact" className="page-pad section-block" style={s.contact}>
         <Container>
-          <Reveal variant="fade" style={s.contactInner}>
+          <Reveal variant="fade" className="contact-inner" style={s.contactInner}>
             <span style={s.sectionTag}>Contact</span>
             <h2 style={s.contactHeading}>Have a project in mind?<br /><span style={s.accentText}>Let's build it.</span></h2>
             <p style={s.contactSub}>I'm open to freelance projects, full-time opportunities, and interesting collaborations. If you have something worth building, I'd love to hear from you.</p>
-            <div style={s.contactActions}>
+            <div className="contact-actions" style={s.contactActions}>
               <Btn href={`mailto:${EMAIL}`} normalCase>{EMAIL}</Btn>
-              <div className="btn-row" style={s.contactSocials}>
+              <div className="btn-row contact-socials" style={s.contactSocials}>
                 <Btn href={GITHUB_URL} target="_blank" rel="noreferrer">GitHub</Btn>
                 <Btn href={LINKEDIN_URL} target="_blank" rel="noreferrer">LinkedIn</Btn>
                 <Btn onClick={openResume}>Resume</Btn>
@@ -423,12 +423,13 @@ export default function ShamanthPortfolio() {
       </section>
 
       <footer className="footer page-pad section-block" style={s.footer}>
-        <Container style={s.footerInner}>
-          <a href="#" style={s.footerLogoLink}>Shamanth kumar<span style={{ color: "#C8A97E" }}>.</span></a>
-          <p style={s.footerName}> Web Developer · Bengaluru</p>
-          <div style={s.footerRight}>
-          
-            <p style={s.footerCopy}>© 2024 — Built with React</p>
+        <Container style={s.footerInnerWrap}>
+          <div className="footer-inner" style={s.footerInner}>
+            <a href="#" style={s.footerLogoLink}>Shamanth kumar<span style={{ color: "#C8A97E" }}>.</span></a>
+            <p style={s.footerName}> Web Developer · Bengaluru</p>
+            <div className="footer-right" style={s.footerRight}>
+              <p style={s.footerCopy}>© 2024 — Built with React</p>
+            </div>
           </div>
         </Container>
       </footer>
@@ -675,6 +676,7 @@ const s = {
     transition: "border-color 0.2s, color 0.2s",
   },
   footer: { padding: "32px 0", borderTop: "1px solid #111" },
+  footerInnerWrap: {},
   footerInner: { display: "grid", gridTemplateColumns: "1fr 1fr 1fr", alignItems: "center" },
   footerLogoLink: { fontSize: "18px", fontWeight: 700, letterSpacing: "-0.02em", color: "#F0EDE6", textDecoration: "none" },
   footerName: { fontSize: "12px", color: "#444", textAlign: "center" },
@@ -688,7 +690,7 @@ const css = `
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body { background: #0A0A0A; }
-  .page-pad { padding-left: 48px; padding-right: 48px; }
+  .page-pad { padding-left: clamp(20px, 4.5vw, 48px); padding-right: clamp(20px, 4.5vw, 48px); }
   .site-btn {
     display: inline-flex; align-items: center; justify-content: center;
     padding: 12px 22px; border: 1px solid #C8A97E; background: transparent;
@@ -748,9 +750,15 @@ const css = `
   @keyframes resumeFadeIn { from { opacity:0; } to { opacity:1; } }
   @keyframes resumeSlideIn { from { opacity:0; transform:translateY(24px) scale(0.98); } to { opacity:1; transform:translateY(0) scale(1); } }
   a:not(.site-btn):hover { opacity:0.85; }
+
+  /* ---------- Large desktop refinement ---------- */
+  @media (min-width:1400px) {
+    .page-pad { padding-left:64px !important; padding-right:64px !important; }
+  }
+
+  /* ---------- Tablet ---------- */
   @media (max-width:1024px) {
-    .page-pad { padding-left:24px !important; padding-right:24px !important; }
-    .section-block { padding-top:30px !important; padding-bottom:30px !important; }
+    .section-block { padding-top:64px !important; padding-bottom:64px !important; }
     .hero { padding-bottom:72px !important; }
     .heroLayout { padding-top:72px !important; min-height:auto !important; }
     .hero-inner { flex-direction:column !important; align-items:flex-start !important; gap:28px !important; }
@@ -759,34 +767,78 @@ const css = `
     .hero-ctas { width:100% !important; }
     .reveal-left,.reveal-right { transform:translateY(36px); }
     .reveal.revealed.reveal-left,.reveal.revealed.reveal-right { transform:translateY(0); }
+    .aboutInner { gap:56px !important; }
+    .skillItem { grid-template-columns:200px 1fr 28px !important; gap:32px !important; }
+    .projectRow { gap:28px !important; }
   }
+
+  /* ---------- Mobile: center everything, tighten gaps ---------- */
   @media (max-width:768px) {
-    .page-pad { padding-left:20px !important; padding-right:20px !important; }
     .topNav { padding-top:16px !important; padding-bottom:16px !important; }
     .cityBlock { display:none; }
-    .hero { padding-bottom:80px !important; }
+    .section-block { padding-top:56px !important; padding-bottom:56px !important; }
+
+    /* Hero */
+    .hero { padding-bottom:64px !important; }
     .hero-float-layer { display:none; }
-    .hero-sketch-wrap { width:70vw; right:-10%; opacity:0.35; top:18%; transform:translateY(0) !important; }
+    .hero-sketch-wrap { width:70vw; right:-10%; opacity:0.3; top:18%; transform:translateY(0) !important; }
     .heroLayout { padding-top:64px !important; }
-    .hero-sub { margin-bottom:28px !important; }
-    .hero-ctas { display:flex !important; flex-wrap:wrap !important; gap:16px 24px !important; }
-    .hero-meta { margin-top:8px !important; padding-top:20px !important; border-top:1px solid #1a1a1a; }
-    .hero-scroll-btn { bottom:20px !important; }
-    .aboutInner { grid-template-columns:1fr !important; gap:24px !important; }
-    .skillItem { grid-template-columns:1fr !important; gap:12px !important; padding:24px 0 !important; }
-    .projectRow { grid-template-columns:1fr !important; gap:12px !important; padding:24px 0 !important; }
-    .footerInner { display:flex !important; flex-direction:column !important; gap:12px !important; text-align:left !important; }
-    .footerRight { align-items:flex-start !important; }
-    .footerBtns { justify-content:flex-start !important; }
+    .hero-inner { align-items:center !important; text-align:center !important; gap:32px !important; }
+    .hero-content { display:flex; flex-direction:column; align-items:center; width:100%; }
+    .hero-eyebrow { justify-content:center !important; }
+    .hero-title-line, .hero-name-wrap { align-self:center !important; }
+    .hero-sub { margin-bottom:32px !important; max-width:440px; }
+    .hero-ctas { justify-content:center !important; gap:14px 18px !important; }
+    .hero-meta { margin-top:8px !important; padding-top:24px !important; border-top:1px solid #1a1a1a; gap:12px !important; }
+
+    /* About */
+    .aboutInner { grid-template-columns:1fr !important; gap:48px !important; text-align:center; }
+    .about-left, .about-right { display:flex; flex-direction:column; align-items:center; width:100%; }
+    .avatar-box { flex-direction:column !important; text-align:center; gap:12px !important; }
+    .about-body { align-items:center; text-align:center; max-width:480px; }
+    .about-links { justify-content:center !important; }
+
+    /* Skills */
+    .skills-header { flex-direction:column !important; align-items:center !important; text-align:center; gap:14px !important; margin-bottom:48px !important; }
+    .skillItem { grid-template-columns:1fr !important; gap:14px !important; padding:28px 0 !important; text-align:center; }
+    .skill-left { align-items:center !important; }
+    .skill-desc { max-width:480px; margin:0 auto; }
+    .skill-arrow { display:none; }
+
+    /* Projects */
+    .projects-header { text-align:center; }
+    .projectRow { grid-template-columns:1fr !important; gap:16px !important; padding:28px 0 !important; text-align:center; }
+    .project-meta { flex-direction:row !important; justify-content:center !important; gap:10px !important; }
+    .project-info { align-items:center !important; }
+    .project-title-row { justify-content:center !important; }
+    .tech-stack { justify-content:center !important; }
+    .project-arrow { display:none; }
+
+    /* Contact */
+    .contact-inner { display:flex; flex-direction:column; align-items:center; text-align:center; }
+    .contact-actions { align-items:center !important; }
+    .contact-socials { justify-content:center !important; }
+
+    /* Footer */
+    .footer-inner { display:flex !important; flex-direction:column !important; align-items:center !important; gap:14px !important; text-align:center !important; }
+    .footer-right { align-items:center !important; }
+
     .resume-backdrop { padding:12px !important; }
     .resume-modal { height:92vh !important; }
-    .heroLayout { padding-bottom:80px !important; min-height:70vh !important; }
-    .site-btn {
-    padding: 10px 18px !important;
-    font-size: 11px !important;
+    .heroLayout { padding-bottom:64px !important; min-height:70vh !important; }
+    .site-btn { padding:10px 18px !important; font-size:11px !important; }
   }
-}
 
+  /* ---------- Small phones ---------- */
+  @media (max-width:480px) {
+    .section-block { padding-top:44px !important; padding-bottom:44px !important; }
+    .hero-meta { grid-template-columns:1fr !important; gap:14px !important; }
+    .hero-ctas { flex-direction:column !important; align-items:stretch !important; }
+    .hero-ctas .site-btn { width:100%; }
+    .about-links { flex-direction:column !important; align-items:stretch !important; width:100%; }
+    .about-links .site-btn { width:100%; text-align:center; }
+    .contact-socials { flex-direction:column !important; align-items:stretch !important; width:100%; }
+    .contact-socials .site-btn { width:100%; }
+    .techStack, .tech-stack { gap:6px !important; }
   }
 `;
-
