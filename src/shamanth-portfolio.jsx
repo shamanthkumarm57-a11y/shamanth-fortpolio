@@ -95,10 +95,10 @@ const PROJECTS = [
 
 const STACK = [
   "React.js", "Next.js", "JavaScript", "TypeScript", "Node.js", "Express.js", "Python", "Django", "WordPress", "Headless WordPress", "Webflow", "WooCommerce", "HTML5", "CSS3", "Tailwind CSS", "Bootstrap", "Material UI", "GSAP", "REST APIs", "PostgreSQL", "MongoDB", "MySQL", "Firebase", "Git", "GitHub", "Vercel", "Netlify", "Cloudflare", "SEO", "Technical SEO", "Digital Marketing", "Google Analytics", "Google Search Console", "Meta Ads", "Content Strategy", "Email Marketing", "Figma", "Postman", "Responsive Web Design", "Performance Optimization", "Cross-Browser Compatibility", "UI/UX Development", "Agile Methodology"
-]
+];
 const GITHUB_URL = "https://github.com/shamanthkumarm57-a11y";
 const LINKEDIN_URL = "https://www.linkedin.com/in/shamanth-kumar-m-04269724b";
-const RESUME_URL = `${import.meta.env.BASE_URL}Shamanth-Resume.pdf`;
+const RESUME_URL = `${import.meta.env.BASE_URL || "/"}Shamanth-Resume.pdf`;
 const EMAIL = "shamanthm727@gmail.com";
 
 const HERO_FLOATS = [
@@ -110,8 +110,8 @@ const HERO_FLOATS = [
 
 const CONTAINER = { maxWidth: "1100px", margin: "0 auto", width: "100%" };
 
-function Container({ children, style }) {
-  return <div style={{ ...CONTAINER, ...style }}>{children}</div>;
+function Container({ children, style, className = "" }) {
+  return <div className={className} style={{ ...CONTAINER, ...style }}>{children}</div>;
 }
 
 function Btn({ children, href, onClick, target, rel, light = false, normalCase = false, className = "", style }) {
@@ -240,7 +240,7 @@ export default function ShamanthPortfolio() {
       <style>{css}</style>
 
       <nav className="topNav page-pad" style={{ ...s.nav, borderBottom: scrolled ? "1px solid #1f1f1f" : "1px solid transparent" }}>
-        <Container style={s.navInner}>
+        <Container style={s.navInner} className="topNav-inner">
           <div style={s.navBrand}><span style={s.brandIcon}>S</span></div>
           <div className="cityBlock" style={s.cityBlock}>
             {CITIES.map((c, i) => (
@@ -250,12 +250,12 @@ export default function ShamanthPortfolio() {
               </span>
             ))}
           </div>
-          <button style={s.menuBtn} onClick={() => setMenuOpen(true)}>Menu</button>
+          <button style={s.menuBtn} className="menu-toggle-btn" onClick={() => setMenuOpen(true)}>Menu</button>
         </Container>
       </nav>
 
-      <div style={{ ...s.overlay, opacity: menuOpen ? 1 : 0, pointerEvents: menuOpen ? "all" : "none" }}>
-        <div style={s.overlayTop}>
+      <div className="menu-overlay-block" style={{ ...s.overlay, opacity: menuOpen ? 1 : 0, pointerEvents: menuOpen ? "all" : "none" }}>
+        <div style={s.overlayTop} className="overlay-header">
           <div style={s.menuTitle}>Menu</div>
           <button style={{ ...s.menuBtn, color: "#0A0A0A" }} onClick={() => setMenuOpen(false)}>Close ✕</button>
         </div>
@@ -266,14 +266,14 @@ export default function ShamanthPortfolio() {
             </a>
           ))}
         </nav>
-        <div style={s.overlayBottom}>
+        <div style={s.overlayBottom} className="overlay-footer">
           <p style={s.overlayEmail}>{EMAIL}</p>
-          <div style={s.btnRow}>
+          <div style={s.btnRow} className="overlay-btn-row">
             <Btn href={GITHUB_URL} target="_blank" rel="noreferrer" light>GitHub</Btn>
             <Btn href={LINKEDIN_URL} target="_blank" rel="noreferrer" light>LinkedIn</Btn>
             <Btn onClick={openResume} light>Resume</Btn>
           </div>
-          <p style={s.overlayCopy}>© 2024 Shamanth Kumar M</p>
+          <p style={s.overlayCopy}>© 2026 Shamanth Kumar M</p>
         </div>
       </div>
 
@@ -293,13 +293,13 @@ export default function ShamanthPortfolio() {
         <div className="hero-sketch-wrap" style={{ transform: `translate3d(${parallax.x * -0.4}px, calc(-50% + ${parallax.y * -0.3}px), 0)` }}>
           <HeroSketch />
         </div>
-        <Container style={s.heroLayout}>
-          <div className="hero-inner" style={s.heroInner}>
+        <Container style={s.heroLayout} className="hero-layout-wrapper">
+          <div className="heroInner-row" style={s.heroInner}>
             <div className="hero-content" style={s.heroContent}>
               <p className="hero-enter hero-eyebrow" style={{ ...s.heroEyebrow, animationDelay: "0.15s" }}>
                 <span style={s.eyebrowDot} /> Available for freelance & full-time roles
               </p>
-              <h1 style={s.heroTitle}>
+              <h1 style={s.heroTitle} className="hero-main-heading">
                 <span className="hero-enter hero-title-line" style={{ animationDelay: "0.3s" }}>Shamanth</span>
                 <span className="hero-enter hero-title-line hero-name-wrap" style={{ animationDelay: "0.5s" }}>
                   <span style={s.heroName}>Kumar M</span>
@@ -315,7 +315,7 @@ export default function ShamanthPortfolio() {
                 <Btn href="#contact">Let's Talk</Btn>
               </div>
             </div>
-            <div className="hero-meta hero-enter" style={{ ...s.heroMeta, animationDelay: "1.15s" }}>
+            <div className="hero-meta hero-enter" style={s.heroMeta}>
               <div className="meta-item" style={s.metaItem}><span style={s.metaNum}>2+</span><span style={s.metaLabel}>Years building</span></div>
               <div className="meta-item" style={s.metaItem}><span style={s.metaNum}>20+</span><span style={s.metaLabel}>Projects shipped</span></div>
               <div className="meta-item" style={s.metaItem}><span style={s.metaNum}>∞</span><span style={s.metaLabel}>Problems solved</span></div>
@@ -327,7 +327,7 @@ export default function ShamanthPortfolio() {
 
       <section id="about" className="page-pad section-block" style={s.about}>
         <Container>
-          <div className="aboutInner" style={s.aboutInner}>
+          <div className="aboutInner">
             <Reveal variant="left" className="about-left" style={s.aboutLeft}>
               <span style={s.sectionTag}>About</span>
               <div className="avatar-box" style={s.avatarBox}>
@@ -339,7 +339,7 @@ export default function ShamanthPortfolio() {
               </div>
             </Reveal>
             <Reveal variant="right" delay={100} className="about-right" style={s.aboutRight}>
-              <h2 style={s.aboutHeading}>I turn ideas into<br /><span style={s.accentText}>digital products</span><br />people love.</h2>
+              <h2 style={s.aboutHeading} className="about-main-heading">I turn ideas into<br /><span style={s.accentText}>digital products</span><br />people love.</h2>
               <div className="about-body" style={s.aboutBody}>
                 <p>I'm Shamanth — a full-stack web developer from Bengaluru with a deep curiosity for how the web works and a commitment to making it work better.</p>
                 <p>Over the years I've built everything from scrappy side projects to production-grade applications — always with the same drive: understand the problem deeply, design the solution carefully, and execute with precision.</p>
@@ -361,7 +361,7 @@ export default function ShamanthPortfolio() {
             <span style={s.sectionTag}>Expertise</span>
             <p style={s.skillsSub}>Web development, WordPress, Webflow, SEO, digital marketing, and everything needed to launch and grow online.</p>
           </Reveal>
-          <div style={s.skillsList}>
+          <div className="skillsList-wrapper" style={s.skillsList}>
             {SKILLS.map((sk, i) => (
               <Reveal key={sk.tag} delay={i * 80}>
                 <div className="skillItem" style={{ ...s.skillItem, borderTopColor: hoveredSkill === sk.tag ? sk.accent : "#222" }} onMouseEnter={() => setHoveredSkill(sk.tag)} onMouseLeave={() => setHoveredSkill(null)}>
@@ -372,7 +372,7 @@ export default function ShamanthPortfolio() {
               </Reveal>
             ))}
           </div>
-          <Reveal delay={120} style={s.marqueeWrap}>
+          <Reveal delay={120} style={s.marqueeWrap} className="skills-marquee-wrap">
             <div className="marquee-track" style={s.marqueeTrack}>
               {[...STACK, ...STACK].map((t, i) => <span key={i} style={s.marqueeTag}>{t}</span>)}
             </div>
@@ -384,9 +384,9 @@ export default function ShamanthPortfolio() {
         <Container>
           <Reveal className="projects-header" style={s.projectsHeader}>
             <span style={s.sectionTag}>Selected Work</span>
-            <h2 style={s.projectsHeading}>Projects that<br /><span style={s.accentText}>define my craft.</span></h2>
+            <h2 style={s.projectsHeading} className="projects-main-heading">Projects that<br /><span style={s.accentText}>define my craft.</span></h2>
           </Reveal>
-          <div style={s.projectList}>
+          <div className="projectList-wrapper" style={s.projectList}>
             {PROJECTS.map((p, i) => (
               <Reveal key={p.id} delay={i * 90}>
                 <div className="projectRow" style={{ ...s.projectRow, background: hoveredProject === p.id ? "#111" : "transparent", borderTopColor: hoveredProject === p.id ? p.accent : "#1a1a1a" }} onMouseEnter={() => setHoveredProject(p.id)} onMouseLeave={() => setHoveredProject(null)}>
@@ -408,7 +408,7 @@ export default function ShamanthPortfolio() {
         <Container>
           <Reveal variant="fade" className="contact-inner" style={s.contactInner}>
             <span style={s.sectionTag}>Contact</span>
-            <h2 style={s.contactHeading}>Have a project in mind?<br /><span style={s.accentText}>Let's build it.</span></h2>
+            <h2 style={s.contactHeading} className="contact-main-heading">Have a project in mind?<br /><span style={s.accentText}>Let's build it.</span></h2>
             <p style={s.contactSub}>I'm open to freelance projects, full-time opportunities, and interesting collaborations. If you have something worth building, I'd love to hear from you.</p>
             <div className="contact-actions" style={s.contactActions}>
               <Btn href={`mailto:${EMAIL}`} normalCase>{EMAIL}</Btn>
@@ -424,11 +424,11 @@ export default function ShamanthPortfolio() {
 
       <footer className="footer page-pad section-block" style={s.footer}>
         <Container style={s.footerInnerWrap}>
-          <div className="footer-inner" style={s.footerInner}>
+          <div className="footer-inner">
             <a href="#" style={s.footerLogoLink}>Shamanth kumar<span style={{ color: "#C8A97E" }}>.</span></a>
             <p style={s.footerName}> Web Developer · Bengaluru</p>
             <div className="footer-right" style={s.footerRight}>
-              <p style={s.footerCopy}>© 2024 — Built with React</p>
+              <p style={s.footerCopy}>© 2026 — Built with React</p>
             </div>
           </div>
         </Container>
@@ -562,7 +562,6 @@ const s = {
     display: "block", marginBottom: "32px",
   },
   about: { padding: "120px 0", borderTop: "1px solid #1a1a1a" },
-  aboutInner: { display: "grid", gridTemplateColumns: "1fr 2fr", gap: "80px" },
   aboutLeft: {},
   avatar: {
     width: "80px", height: "80px", borderRadius: "50%",
@@ -596,7 +595,6 @@ const s = {
   skillsSub: { color: "#555", fontSize: "13px", maxWidth: "360px", lineHeight: 1.6, margin: 0 },
   skillsList: { display: "flex", flexDirection: "column" },
   skillItem: {
-    display: "grid", gridTemplateColumns: "260px 1fr 32px",
     gap: "48px", padding: "36px 0", alignItems: "start",
     borderTop: "1px solid", transition: "border-color 0.3s",
     borderBottom: "1px solid #1a1a1a", cursor: "default",
@@ -622,7 +620,6 @@ const s = {
   },
   projectList: { display: "flex", flexDirection: "column" },
   projectRow: {
-    display: "grid", gridTemplateColumns: "80px 1fr 40px",
     gap: "40px", padding: "40px 0",
     borderTop: "1px solid", borderBottom: "1px solid #1a1a1a",
     transition: "background 0.3s, border-color 0.3s", cursor: "default",
@@ -646,7 +643,7 @@ const s = {
   },
   projectArrow: {
     fontSize: "24px", textDecoration: "none",
-    transition: "color 0.3s", justifySelf: "end",
+    transition: "color: 0.3s", justifySelf: "end",
     alignSelf: "center",
   },
   contact: { padding: "160px 0", borderTop: "1px solid #1a1a1a", background: "#080808" },
@@ -658,7 +655,7 @@ const s = {
   },
   contactSub: {
     color: "#777", fontSize: "16px", lineHeight: 1.7,
-    fontWeight: 300, marginBottom: "56px", maxWidth: "520px",
+    fontWeight: 300, margin: "0 0 56px", maxWidth: "520px",
   },
   contactActions: { display: "flex", flexDirection: "column", gap: "32px" },
   emailLink: {
@@ -676,13 +673,11 @@ const s = {
     transition: "border-color 0.2s, color 0.2s",
   },
   footer: { padding: "32px 0", borderTop: "1px solid #111" },
-  footerInnerWrap: {},
-  footerInner: { display: "grid", gridTemplateColumns: "1fr 1fr 1fr", alignItems: "center" },
   footerLogoLink: { fontSize: "18px", fontWeight: 700, letterSpacing: "-0.02em", color: "#F0EDE6", textDecoration: "none" },
-  footerName: { fontSize: "12px", color: "#444", textAlign: "center" },
-  footerRight: { display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "12px" },
+  footerName: { fontSize: "12px", color: "#444" },
+  footerRight: { display: "flex", flexDirection: "column", gap: "12px" },
   footerBtns: { justifyContent: "flex-end" },
-  footerCopy: { fontSize: "12px", color: "#333", textAlign: "right", margin: 0 },
+  footerCopy: { fontSize: "12px", color: "#333", margin: 0 },
 };
 
 const css = `
@@ -691,6 +686,13 @@ const css = `
   html { scroll-behavior: smooth; }
   body { background: #0A0A0A; }
   .page-pad { padding-left: clamp(20px, 4.5vw, 48px); padding-right: clamp(20px, 4.5vw, 48px); }
+  
+  /* Layout Architecture Definitions */
+  .aboutInner { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; }
+  .skillItem { display: grid; grid-template-columns: 260px 1fr 32px; }
+  .projectRow { display: grid; grid-template-columns: 80px 1fr 40px; }
+  .footer-inner { display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: center; }
+
   .site-btn {
     display: inline-flex; align-items: center; justify-content: center;
     padding: 12px 22px; border: 1px solid #C8A97E; background: transparent;
@@ -751,94 +753,131 @@ const css = `
   @keyframes resumeSlideIn { from { opacity:0; transform:translateY(24px) scale(0.98); } to { opacity:1; transform:translateY(0) scale(1); } }
   a:not(.site-btn):hover { opacity:0.85; }
 
-  /* ---------- Large desktop refinement ---------- */
+  /* ---------- Desktop Optimization Viewport Layer ---------- */
   @media (min-width:1400px) {
     .page-pad { padding-left:64px !important; padding-right:64px !important; }
   }
 
-  /* ---------- Tablet ---------- */
+  /* ---------- Tablet Media Adjustments ---------- */
   @media (max-width:1024px) {
     .section-block { padding-top:64px !important; padding-bottom:64px !important; }
     .hero { padding-bottom:72px !important; }
-    .heroLayout { padding-top:72px !important; min-height:auto !important; }
-    .hero-inner { flex-direction:column !important; align-items:flex-start !important; gap:28px !important; }
-    .hero-meta { width:100% !important; display:grid !important; grid-template-columns:repeat(3, minmax(0, 1fr)) !important; gap:16px !important; justify-items:center !important; }
-    .hero-meta .meta-item { align-items:center !important; text-align:center !important; }
+    .hero-layout-wrapper { padding-top:72px !important; min-height:auto !important; }
+    .heroInner-row { flex-direction:column !important; align-items:flex-start !important; gap:28px !important; }
+    .hero-meta { width:100% !important; display:grid !important; grid-template-columns:repeat(3, minmax(0, 1fr)) !important; gap:16px !important; justify-items:flex-start !important; border-left: none !important; padding-left: 0 !important; }
+    .hero-meta .meta-item { align-items:flex-start !important; text-align:left !important; }
     .hero-ctas { width:100% !important; }
     .reveal-left,.reveal-right { transform:translateY(36px); }
     .reveal.revealed.reveal-left,.reveal.revealed.reveal-right { transform:translateY(0); }
-    .aboutInner { gap:56px !important; }
+    .aboutInner { gap:56px !important; grid-template-columns: 1fr 2fr !important; }
     .skillItem { grid-template-columns:200px 1fr 28px !important; gap:32px !important; }
     .projectRow { gap:28px !important; }
   }
 
-  /* ---------- Mobile: center everything, tighten gaps ---------- */
+  /* ---------- Mobile Correct Positioning Overhaul ---------- */
   @media (max-width:768px) {
     .topNav { padding-top:16px !important; padding-bottom:16px !important; }
-    .cityBlock { display:none; }
+    .topNav-inner { display: flex !important; justify-content: space-between !important; align-items: center !important; width: 100% !important; }
+    .cityBlock { display:none !important; }
+    
+    /* Strict 10px mobile padding */
+    .page-pad { padding-left: 10px !important; padding-right: 10px !important; }
     .section-block { padding-top:56px !important; padding-bottom:56px !important; }
+    
+    .menu-overlay-block { padding: 24px !important; justify-content: space-between !important; }
+    .overlay-header { margin-bottom: 32px !important; }
+    .overlay-footer { margin-top: 32px !important; }
+    .overlay-btn-row { gap: 8px !important; }
 
-    /* Hero */
-    .hero { padding-bottom:64px !important; }
-    .hero-float-layer { display:none; }
-    .hero-sketch-wrap { width:70vw; right:-10%; opacity:0.3; top:18%; transform:translateY(0) !important; }
-    .heroLayout { padding-top:64px !important; }
-    .hero-inner { align-items:center !important; text-align:center !important; gap:32px !important; }
-    .hero-content { display:flex; flex-direction:column; align-items:center; width:100%; }
-    .hero-eyebrow { justify-content:center !important; }
-    .hero-title-line, .hero-name-wrap { align-self:center !important; }
-    .hero-sub { margin-bottom:32px !important; max-width:440px; }
-    .hero-ctas { justify-content:center !important; gap:14px 18px !important; }
-    .hero-meta { margin-top:8px !important; padding-top:24px !important; border-top:1px solid #1a1a1a; gap:12px !important; }
+    /* Centered Hero Responsive Corrections */
+    .hero { padding-bottom:64px !important; display: flex !important; align-items: center !important; }
+    .hero-float-layer { display:none !important; }
+    .hero-sketch-wrap { width:70vw !important; right:-10% !important; opacity:0.15 !important; top:18% !important; transform:translateY(0) !important; }
+    .hero-layout-wrapper { padding-top:88px !important; height: auto !important; min-height: auto !important; }
+    
+    /* Left-align specific overrides */
+    .heroInner-row { align-items:flex-start !important; text-align:left !important; gap:32px !important; flex-direction: column !important; }
+    .hero-content { display:flex !important; flex-direction:column !important; align-items:flex-start !important; width:100% !important; }
+    .hero-eyebrow { justify-content:flex-start !important; }
+    .hero-title-line, .hero-name-wrap { align-self:flex-start !important; }
+    .hero-main-heading { font-size: clamp(40px, 8.5vw, 68px) !important; line-height: 1.05 !important; text-align: left !important; }
+    .hero-sub { margin-bottom:32px !important; max-width:440px !important; margin-left: 0 !important; margin-right: auto !important; }
+    .hero-ctas { justify-content:flex-start !important; gap:14px 18px !important; width: 100% !important; flex-direction: row !important; flex-wrap: wrap !important; }
+    .hero-meta { margin-top:8px !important; padding-top:24px !important; border-top:1px solid #1a1a1a !important; gap:12px !important; width:100% !important; display:grid !important; grid-template-columns:repeat(3, minmax(0, 1fr)) !important; border-left: none !important; padding-left: 0 !important; justify-items: start !important; }
+    .hero-meta .meta-item { align-items: flex-start !important; text-align: left !important; }
 
-    /* About */
-    .aboutInner { grid-template-columns:1fr !important; gap:48px !important; text-align:center; }
-    .about-left, .about-right { display:flex; flex-direction:column; align-items:center; width:100%; }
-    .avatar-box { flex-direction:column !important; text-align:center; gap:12px !important; }
-    .about-body { align-items:center; text-align:center; max-width:480px; }
-    .about-links { justify-content:center !important; }
+    /* About Responsive Corrections */
+    .aboutInner { grid-template-columns:1fr !important; gap:48px !important; text-align:left !important; }
+    .about-left, .about-right { display:flex !important; flex-direction:column !important; align-items:flex-start !important; width:100% !important; text-align: left !important; }
+    .avatar-box { flex-direction:row !important; text-align:left !important; gap:16px !important; }
+    .about-main-heading { text-align: left !important; }
+    .about-body { align-items:flex-start !important; text-align:left !important; max-width:480px !important; }
+    
+    /* Left align buttons here to fix the disjointed layout in the screenshot */
+    .about-links { justify-content:flex-start !important; width: 100% !important; flex-direction: row !important; flex-wrap: wrap !important; gap: 12px !important; }
 
-    /* Skills */
-    .skills-header { flex-direction:column !important; align-items:center !important; text-align:center; gap:14px !important; margin-bottom:48px !important; }
-    .skillItem { grid-template-columns:1fr !important; gap:14px !important; padding:28px 0 !important; text-align:center; }
-    .skill-left { align-items:center !important; }
-    .skill-desc { max-width:480px; margin:0 auto; }
-    .skill-arrow { display:none; }
+    /* Skills Responsive Corrections */
+    .skills-header { flex-direction:column !important; align-items:flex-start !important; text-align:left !important; gap:14px !important; margin-bottom:48px !important; }
+    .skillsList-wrapper { border-top: 1px solid #222 !important; }
+    .skillItem { grid-template-columns:1fr !important; gap:14px !important; padding:28px 0 !important; text-align:left !important; }
+    .skill-left { align-items:flex-start !important; }
+    .skill-desc { max-width:480px !important; margin:0 !important; }
+    .skill-arrow { display:none !important; }
+    .skills-marquee-wrap { margin-top: 40px !important; }
 
-    /* Projects */
-    .projects-header { text-align:center; }
-    .projectRow { grid-template-columns:1fr !important; gap:16px !important; padding:28px 0 !important; text-align:center; }
-    .project-meta { flex-direction:row !important; justify-content:center !important; gap:10px !important; }
-    .project-info { align-items:center !important; }
-    .project-title-row { justify-content:center !important; }
-    .tech-stack { justify-content:center !important; }
-    .project-arrow { display:none; }
+    /* Projects Responsive Corrections */
+    .projects-header { text-align:left !important; margin-bottom: 48px !important; }
+    .projects-main-heading { text-align: left !important; }
+    .projectList-wrapper { border-top: 1px solid #1a1a1a !important; }
+    .projectRow { grid-template-columns:1fr !important; gap:16px !important; padding:28px 0 !important; text-align:left !important; }
+    .project-meta { flex-direction:row !important; justify-content:flex-start !important; gap:16px !important; align-items: center !important; }
+    .project-info { align-items:flex-start !important; width: 100% !important; text-align: left !important; }
+    .project-title-row { justify-content:flex-start !important; flex-direction: row !important; gap: 12px !important; align-items: center !important; }
+    .tech-stack { justify-content:flex-start !important; }
+    .project-arrow { display:none !important; }
 
-    /* Contact */
-    .contact-inner { display:flex; flex-direction:column; align-items:center; text-align:center; }
-    .contact-actions { align-items:center !important; }
-    .contact-socials { justify-content:center !important; }
+    /* Contact Responsive Corrections */
+    .contact-inner { display:flex !important; flex-direction:column !important; align-items:flex-start !important; text-align:left !important; }
+    .contact-main-heading { text-align: left !important; }
+    .contact-actions { align-items:flex-start !important; width: 100% !important; }
+    
+    /* Left align buttons here to fix the disjointed layout in the screenshot */
+    .contact-socials { justify-content:flex-start !important; width: 100% !important; flex-direction: row !important; flex-wrap: wrap !important; gap: 12px !important; }
 
-    /* Footer */
-    .footer-inner { display:flex !important; flex-direction:column !important; align-items:center !important; gap:14px !important; text-align:center !important; }
-    .footer-right { align-items:center !important; }
+    /* Footer Responsive Corrections */
+    .footer-inner { display:flex !important; flex-direction:row !important; justify-content: space-between !important; align-items:center !important; flex-wrap: wrap !important; gap:14px !important; text-align:left !important; }
+    .footer-right { align-items:flex-end !important; }
 
     .resume-backdrop { padding:12px !important; }
     .resume-modal { height:92vh !important; }
-    .heroLayout { padding-bottom:64px !important; min-height:70vh !important; }
+    .hero-layout-wrapper { padding-bottom:40px !important; }
     .site-btn { padding:10px 18px !important; font-size:11px !important; }
   }
 
-  /* ---------- Small phones ---------- */
+  /* ---------- Tiny Smartphone Screen Bounds ---------- */
   @media (max-width:480px) {
     .section-block { padding-top:44px !important; padding-bottom:44px !important; }
-    .hero-meta { grid-template-columns:1fr !important; gap:14px !important; }
-    .hero-ctas { flex-direction:column !important; align-items:stretch !important; }
-    .hero-ctas .site-btn { width:100%; }
-    .about-links { flex-direction:column !important; align-items:stretch !important; width:100%; }
-    .about-links .site-btn { width:100%; text-align:center; }
-    .contact-socials { flex-direction:column !important; align-items:stretch !important; width:100%; }
-    .contact-socials .site-btn { width:100%; }
+    
+    /* Strict 10px mobile padding */
+    .page-pad { padding-left: 10px !important; padding-right: 10px !important; }
+    
+    /* Ensure Hero Meta stats sit next to each other horizontally */
+    .hero-meta { justify-content: center !important; gap: 24px !important; }
+    .hero-meta .meta-item { flex: none !important; }
+    
+    /* 3 Buttons aligned left to match email button and scaled down to fit */
+    .hero-ctas { justify-content: flex-start !important; gap: 8px !important; }
+    .hero-ctas .site-btn { padding: 8px 12px !important; font-size: 10px !important; flex: none !important; }
+    
+    .about-links { justify-content: flex-start !important; gap: 8px !important; }
+    .about-links .site-btn { padding: 8px 12px !important; font-size: 10px !important; flex: none !important; }
+    
+    .contact-socials { justify-content: flex-start !important; gap: 8px !important; }
+    .contact-socials .site-btn { padding: 8px 12px !important; font-size: 10px !important; flex: none !important; }
+    
+    /* Ensure footer aligns properly side by side */
+    .footer-inner { flex-direction:column !important; justify-content: center !important; align-items: center !important; text-align: center !important;}
+    
     .techStack, .tech-stack { gap:6px !important; }
   }
 `;
