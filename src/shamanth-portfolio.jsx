@@ -412,7 +412,6 @@ export default function ShamanthPortfolio() {
             <p style={s.contactSub}>I'm open to freelance projects, full-time opportunities, and interesting collaborations. If you have something worth building, I'd love to hear from you.</p>
             <div className="contact-actions" style={s.contactActions}>
               <Btn href={`mailto:${EMAIL}`} normalCase>{EMAIL}</Btn>
-              <Btn href="tel:+918892887288" normalCase>+91 88928 87288</Btn>
               <div className="btn-row contact-socials" style={s.contactSocials}>
                 <Btn href={GITHUB_URL} target="_blank" rel="noreferrer">GitHub</Btn>
                 <Btn href={LINKEDIN_URL} target="_blank" rel="noreferrer">LinkedIn</Btn>
