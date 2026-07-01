@@ -37,64 +37,64 @@ const NAV_LINKS = [
 ];
 
 const SKILLS = [
-  { tag: "01", title: "Frontend Development", desc: "Crafting pixel-perfect, responsive interfaces with React, Next.js, and modern CSS. Every interaction is intentional — from micro-animations to layout systems that scale.", accent: "#C8A97E" },
-  { tag: "02", title: "CMS Development", desc: "Building fast, secure, and easy-to-manage webflow and WordPress sites — custom themes, plugins, WooCommerce stores, page builders, and performance tuning for real business results.", accent: "#8FB3A8" },
-  { tag: "03", title: "SEO", desc: "Improving search visibility with technical SEO, on-page optimisation, keyword research, site speed fixes, schema markup, and content structure that helps pages rank and convert.", accent: "#B8C88F" },
-  { tag: "04", title: "Digital Marketing", desc: "Growing brands online through content strategy, social media, paid campaigns, email funnels, analytics, and conversion-focused landing pages that turn traffic into leads.", accent: "#C8A97E" },
-  { tag: "05", title: "Backend Engineering", desc: "Building robust APIs and server-side logic with Node.js, Express, and RESTful architecture. Clean, scalable code that holds up under real-world load.", accent: "#8FB3A8" },
-  { tag: "06", title: "Database Design", desc: "Structuring data with purpose — PostgreSQL, MongoDB, and Firebase. Schema design, query optimisation, and data modelling that keeps applications fast and reliable.", accent: "#A89BC8" },
-  { tag: "07", title: "UI/UX Sensibility", desc: "Understanding that great software feels as good as it works. Translating design systems into living interfaces — with Figma, Tailwind, and an eye for the details users notice.", accent: "#B8C88F" },
+  { tag: "01", title: "Frontend Development", desc: "Building responsive, performant interfaces with HTML5, CSS3, JavaScript, React.js, Next.js, and reusable component systems.", accent: "#C8A97E" },
+  { tag: "02", title: "Backend & APIs", desc: "Crafting RESTful APIs and server-side logic with Node.js, PHP, Python, and FastAPI for scalable web applications.", accent: "#8FB3A8" },
+  { tag: "03", title: "CMS & Platforms", desc: "Implementing WordPress, Webflow, HubSpot CMS, Shopify, and headless content workflows for flexible publishing experiences.", accent: "#B8C88F" },
+  { tag: "04", title: "Database Design", desc: "Designing and optimising MongoDB, MySQL, and SQL schemas for fast, reliable data access and reporting.", accent: "#A89BC8" },
+  { tag: "05", title: "SEO & Performance", desc: "Improving search visibility through technical SEO, speed optimisation, accessibility, and mobile-first best practices.", accent: "#C8A97E" },
+  { tag: "06", title: "Tools & Deployment", desc: "Shipping clean code with Git, GitHub, AWS, and modern workflows to keep production deployments stable and maintainable.", accent: "#8FB3A8" },
+  { tag: "07", title: "Responsive Design", desc: "Delivering polished experiences across devices with mobile-first layouts, accessibility, and cross-browser consistency.", accent: "#B8C88F" },
 ];
 
 const PROJECTS = [
   {
-    id: "devflow",
+    id: "covalent",
     num: "01",
-    title: "DevFlow",
-    tag: "Full-Stack App",
-    year: "2024",
-    desc: "A real-time collaborative code review platform. Developers submit pull requests, reviewers annotate live, and AI summarises changes. Built with React, Node.js, WebSockets, and PostgreSQL.",
-    tech: ["React", "Node.js", "WebSockets", "PostgreSQL", "OpenAI API"],
+    title: "Covalent",
+    tag: "WordPress Development",
+    year: "2025",
+    desc: "Custom WordPress sites built with HTML, CSS, PHP, JavaScript, and MySQL. Delivered responsive themes and performance-focused web experiences.",
+    tech: ["WordPress", "PHP", "MySQL", "HTML5", "CSS3"],
     accent: "#C8A97E",
     link: "#",
   },
   {
-    id: "storely",
+    id: "studiox",
     num: "02",
-    title: "Storely",
-    tag: "E-commerce Platform",
-    year: "2024",
-    desc: "End-to-end e-commerce solution for independent creators — product listings, cart, Stripe payments, and a custom dashboard. Next.js on the frontend, Express + MongoDB on the backend.",
-    tech: ["Next.js", "Express", "MongoDB", "Stripe", "Tailwind CSS"],
+    title: "StudioX",
+    tag: "React & Next.js",
+    year: "2025",
+    desc: "Frontend applications using React.js and Next.js with reusable UI components and fast, modern architecture.",
+    tech: ["React.js", "Next.js", "JavaScript", "CSS3", "Responsive Design"],
     accent: "#8FB3A8",
     link: "#",
   },
   {
-    id: "pulseboard",
+    id: "datakrew",
     num: "03",
-    title: "PulseBoard",
-    tag: "Analytics Dashboard",
+    title: "Datakrew",
+    tag: "Full-stack App",
     year: "2025",
-    desc: "A SaaS analytics dashboard for small businesses — visualising revenue, user retention, and funnel data in real time. Custom chart components, JWT auth, and role-based access.",
-    tech: ["React", "D3.js", "Firebase", "Node.js", "Chart.js"],
+    desc: "Full-stack web solutions powered by React.js, Next.js, and REST APIs for scalable product experiences.",
+    tech: ["React.js", "Next.js", "REST APIs", "Node.js", "SQL"],
     accent: "#A89BC8",
     link: "#",
   },
   {
-    id: "moodcast",
+    id: "datafoundry",
     num: "04",
-    title: "MoodCast",
-    tag: "Mobile Web App",
-    year: "2026",
-    desc: "A daily mood tracking app with journal prompts and weekly insights. Progressive Web App with offline support, local-first storage, and push notifications.",
-    tech: ["React", "IndexedDB", "Service Workers", "PWA", "CSS Animations"],
+    title: "DataFoundry AI",
+    tag: "CMS & Marketing",
+    year: "2024",
+    desc: "Content-driven sites integrated with Webflow, HubSpot CMS, and SEO strategy to support digital marketing goals.",
+    tech: ["Webflow", "HubSpot CMS", "SEO", "HTML5", "CSS3"],
     accent: "#B8C88F",
     link: "#",
   },
 ];
 
 const STACK = [
-  "React.js", "Next.js", "JavaScript", "TypeScript", "Node.js", "Express.js", "Python", "Django", "WordPress", "Headless WordPress", "Webflow", "WooCommerce", "HTML5", "CSS3", "Tailwind CSS", "Bootstrap", "Material UI", "GSAP", "REST APIs", "PostgreSQL", "MongoDB", "MySQL", "Firebase", "Git", "GitHub", "Vercel", "Netlify", "Cloudflare", "SEO", "Technical SEO", "Digital Marketing", "Google Analytics", "Google Search Console", "Meta Ads", "Content Strategy", "Email Marketing", "Figma", "Postman", "Responsive Web Design", "Performance Optimization", "Cross-Browser Compatibility", "UI/UX Development", "Agile Methodology"
+  "HTML5", "CSS3", "JavaScript", "jQuery", "React.js", "Next.js", "Node.js", "PHP", "Python", "FastAPI", "REST APIs", "WordPress", "Webflow", "HubSpot CMS", "Shopify", "MongoDB", "MySQL", "SQL", "Git", "GitHub", "AWS", "SEO", "Responsive Design", "UI/UX", "Performance Optimization"
 ];
 const GITHUB_URL = "https://github.com/shamanthkumarm57-a11y";
 const LINKEDIN_URL = "https://www.linkedin.com/in/shamanth-kumar-m-04269724b";
@@ -114,11 +114,11 @@ function Container({ children, style, className = "" }) {
   return <div className={className} style={{ ...CONTAINER, ...style }}>{children}</div>;
 }
 
-function Btn({ children, href, onClick, target, rel, light = false, normalCase = false, className = "", style }) {
+function Btn({ children, href, onClick, target, rel, download, light = false, normalCase = false, className = "", style }) {
   const cls = `site-btn${light ? " site-btn--light" : ""}${normalCase ? " site-btn--normal" : ""} ${className}`.trim();
   if (href) {
     return (
-      <a href={href} target={target} rel={rel} className={cls} style={style} onClick={onClick}>
+      <a href={href} target={target} rel={rel} download={download} className={cls} style={style} onClick={onClick}>
         {children}
       </a>
     );
@@ -180,7 +180,7 @@ function ResumeModal({ open, onClose }) {
         <div style={s.resumeModalTop}>
           <span style={s.resumeModalTitle}>Shamanth Kumar M — Resume</span>
           <div style={s.resumeModalActions}>
-            <Btn href={RESUME_URL} target="_blank" rel="noreferrer">Download PDF</Btn>
+            <Btn href={RESUME_URL} target="_blank" rel="noreferrer" download="Shamanth-Resume.pdf">Download PDF</Btn>
             <Btn onClick={onClose}>Close</Btn>
           </div>
         </div>
@@ -306,9 +306,9 @@ export default function ShamanthPortfolio() {
                   <span className="hero-sweep" aria-hidden="true" />
                 </span>
               </h1>
-              <p className="hero-enter" style={{ ...s.heroRole, animationDelay: "0.7s" }}>Web Developer · SEO · Digital Marketing</p>
+              <p className="hero-enter" style={{ ...s.heroRole, animationDelay: "0.7s" }}>Web Developer · React · WordPress · SEO</p>
               <p className="hero-enter hero-sub" style={{ ...s.heroSub, animationDelay: "0.85s" }}>
-                I build fast, beautiful websites with React, WordPress, and Webflow — plus SEO and digital marketing that help brands grow online. Based in Bengaluru, shipping globally.
+                I build fast, responsive websites and web apps with React, WordPress, Webflow, and SEO-first architecture. Based in Bengaluru, India.
               </p>
               <div className="hero-enter hero-ctas btn-row" style={{ ...s.heroCtas, animationDelay: "1s" }}>
                 <Btn onClick={openResume}>Resume</Btn>
@@ -334,16 +334,16 @@ export default function ShamanthPortfolio() {
                 <div style={s.avatar}><span style={s.avatarInitials}>SM</span></div>
                 <div style={s.avatarMeta}>
                   <p style={s.avatarName}>Shamanth Kumar M</p>
-                  <p style={s.avatarRole}>Web Developer · SEO · Digital Marketing · Bengaluru, IN</p>
+                  <p style={s.avatarRole}>Web Developer · React · WordPress · SEO · Bengaluru, India</p>
                 </div>
               </div>
             </Reveal>
             <Reveal variant="right" delay={100} className="about-right" style={s.aboutRight}>
               <h2 style={s.aboutHeading} className="about-main-heading">I turn ideas into<br /><span style={s.accentText}>digital products</span><br />people love.</h2>
               <div className="about-body" style={s.aboutBody}>
-                <p>I'm Shamanth — a full-stack web developer from Bengaluru with a deep curiosity for how the web works and a commitment to making it work better.</p>
-                <p>Over the years I've built everything from scrappy side projects to production-grade applications — always with the same drive: understand the problem deeply, design the solution carefully, and execute with precision.</p>
-                <p>When I'm not coding, I'm exploring new technologies, contributing to open source, or sketching out the next thing I want to build.</p>
+                <p>Motivated and results-driven web developer with expertise in React.js, Next.js, WordPress, and frontend development.</p>
+                <p>Skilled in responsive UI/UX design, SEO optimisation, and performance enhancement, I build clean, scalable web experiences for modern brands.</p>
+                <p>I work with teams on agile workflows, live production sites, and CMS-driven marketing projects that deliver measurable results.</p>
               </div>
               <div className="btn-row about-links" style={s.aboutLinks}>
                 <Btn href={GITHUB_URL} target="_blank" rel="noreferrer">GitHub</Btn>
@@ -359,7 +359,7 @@ export default function ShamanthPortfolio() {
         <Container>
           <Reveal className="skills-header" style={s.skillsHeader}>
             <span style={s.sectionTag}>Expertise</span>
-            <p style={s.skillsSub}>Web development, WordPress, Webflow, SEO, digital marketing, and everything needed to launch and grow online.</p>
+            <p style={s.skillsSub}>Frontend, backend, CMS, SEO and responsive development for modern web experiences.</p>
           </Reveal>
           <div className="skillsList-wrapper" style={s.skillsList}>
             {SKILLS.map((sk, i) => (
@@ -412,6 +412,7 @@ export default function ShamanthPortfolio() {
             <p style={s.contactSub}>I'm open to freelance projects, full-time opportunities, and interesting collaborations. If you have something worth building, I'd love to hear from you.</p>
             <div className="contact-actions" style={s.contactActions}>
               <Btn href={`mailto:${EMAIL}`} normalCase>{EMAIL}</Btn>
+              <Btn href="tel:+918892887288" normalCase>+91 88928 87288</Btn>
               <div className="btn-row contact-socials" style={s.contactSocials}>
                 <Btn href={GITHUB_URL} target="_blank" rel="noreferrer">GitHub</Btn>
                 <Btn href={LINKEDIN_URL} target="_blank" rel="noreferrer">LinkedIn</Btn>
@@ -426,7 +427,7 @@ export default function ShamanthPortfolio() {
         <Container style={s.footerInnerWrap}>
           <div className="footer-inner">
             <a href="#" style={s.footerLogoLink}>Shamanth kumar<span style={{ color: "#C8A97E" }}>.</span></a>
-            <p style={s.footerName}> Web Developer · Bengaluru</p>
+            <p style={s.footerName}> Web Developer · Bengaluru, India</p>
             <div className="footer-right" style={s.footerRight}>
               <p style={s.footerCopy}>© 2026 — Built with React</p>
             </div>
