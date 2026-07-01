@@ -173,6 +173,16 @@ function ResumeModal({ open, onClose }) {
       window.removeEventListener("keydown", onKey);
     };
   }, [open, onClose]);
+  
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = RESUME_URL;
+    link.download = "Shamanth-Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+  
   if (!open) return null;
   return (
     <div className="resume-backdrop" style={s.resumeBackdrop} onClick={onClose}>
@@ -180,7 +190,7 @@ function ResumeModal({ open, onClose }) {
         <div style={s.resumeModalTop}>
           <span style={s.resumeModalTitle}>Shamanth Kumar M — Resume</span>
           <div style={s.resumeModalActions}>
-            <Btn href={RESUME_URL} target="_blank" rel="noreferrer" download="Shamanth-Resume.pdf">Download PDF</Btn>
+            <Btn onClick={handleDownload}>Download PDF</Btn>
             <Btn onClick={onClose}>Close</Btn>
           </div>
         </div>
