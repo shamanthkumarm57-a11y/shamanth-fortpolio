@@ -784,7 +784,7 @@ const css = `
     .hero-layout-wrapper { padding-top:72px !important; min-height:auto !important; }
     .heroInner-row { flex-direction:column !important; align-items:flex-start !important; gap:28px !important; }
     .hero-meta { width:100% !important; display:grid !important; grid-template-columns:repeat(3, minmax(0, 1fr)) !important; gap:16px !important; justify-items:flex-start !important; border-left: none !important; padding-left: 0 !important; }
-    .hero-meta .meta-item { align-items:flex-start !important; text-align:left !important; }
+    .hero-meta .meta-item { align-items:flex-start !important; text-align:left !important; margin-bottom:2px !important; }
     .hero-ctas { width:100% !important; }
     .reveal-left,.reveal-right { transform:translateY(36px); }
     .reveal.revealed.reveal-left,.reveal.revealed.reveal-right { transform:translateY(0); }
