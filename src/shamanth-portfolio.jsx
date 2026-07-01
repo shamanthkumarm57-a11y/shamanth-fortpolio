@@ -326,9 +326,18 @@ export default function ShamanthPortfolio() {
               </div>
             </div>
             <div className="hero-meta hero-enter" style={s.heroMeta}>
-              <div className="meta-item" style={s.metaItem}><span style={s.metaNum}>2+</span><span style={s.metaLabel}>Years building</span></div>
-              <div className="meta-item" style={s.metaItem}><span style={s.metaNum}>20+</span><span style={s.metaLabel}>Projects shipped</span></div>
-              <div className="meta-item" style={s.metaItem}><span style={s.metaNum}>∞</span><span style={s.metaLabel}>Problems solved</span></div>
+              <div className="meta-item" style={s.metaItem}>
+                <span style={s.metaNum}>2+</span>
+                <span style={s.metaLabel}>Years building</span>
+              </div>
+              <div className="meta-item" style={s.metaItem}>
+                <span style={s.metaNum}>20+</span>
+                <span style={s.metaLabel}>Projects shipped</span>
+              </div>
+              <div className="meta-item" style={s.metaItem}>
+                <span style={s.metaNum}>∞</span>
+                <span style={s.metaLabel}>Problems solved</span>
+              </div>
             </div>
           </div>
         </Container>
@@ -562,10 +571,10 @@ const s = {
     maxWidth: "480px", marginBottom: "48px",
   },
   heroCtas: { marginBottom: "8px" },
-  heroMeta: { display: "flex", flexDirection: "column", gap: "24px", flexShrink: 0, zIndex: 1 },
-  metaItem: { display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "2px" },
+  heroMeta: { display: "flex", flexDirection: "row", justifyContent: "center", gap: "42px", flexWrap: "wrap", textAlign: "center", flexShrink: 0, zIndex: 1 },
+  metaItem: { display: "flex", flexDirection: "column", alignItems: "center", gap: "6px", minWidth: "120px", maxWidth: "160px", textAlign: "center" },
   metaNum: { fontSize: "28px", fontWeight: 700, letterSpacing: "-0.04em", color: "#F0EDE6" },
-  metaLabel: { fontSize: "10px", color: "#444", letterSpacing: "0.15em", textTransform: "uppercase" },
+  metaLabel: { fontSize: "10px", color: "#888", letterSpacing: "0.15em", textTransform: "uppercase" },
   sectionTag: {
     fontSize: "10px", letterSpacing: "0.22em",
     color: "#555", textTransform: "uppercase",
@@ -751,11 +760,11 @@ const css = `
   .hero-sweep { position:absolute; left:-4%; bottom:12%; width:0; height:18%; background:linear-gradient(105deg,transparent,rgba(200,169,126,0.55),transparent); transform:skewX(-18deg); z-index:-1; }
   .hero-ready .hero-sweep { animation:heroSweep 1.1s cubic-bezier(0.22,1,0.36,1) 1.1s forwards; }
   @keyframes heroSweep { from { width:0; opacity:0; } to { width:108%; opacity:1; } }
-  .hero-scroll-btn { position:absolute; bottom:32px; left:50%; transform:translateX(-50%); width:44px; height:44px; border-radius:50%; border:1px solid rgba(200,169,126,0.35); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#C8A97E; z-index:2; opacity:0; }
+  .hero-scroll-btn { position:absolute; bottom:32px; left:50%; transform:translateX(-50%); width:54px; height:54px; border-radius:50%; border:1px solid rgba(200,169,126,0.35); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#C8A97E; z-index:2; opacity:0; background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); box-shadow: 0 16px 40px rgba(0,0,0,0.2); }
   .hero-ready .hero-scroll-btn { animation:heroEnter 0.8s ease 1.4s forwards; }
-  .hero-scroll-ring { position:absolute; inset:-3px; border-radius:50%; border:1px solid transparent; border-top-color:rgba(200,169,126,0.6); animation:heroRingSpin 2.4s linear infinite; }
+  .hero-scroll-ring { position:absolute; inset:-4px; border-radius:50%; border:1px solid transparent; border-top-color:rgba(200,169,126,0.7); animation:heroRingSpin 2.4s linear infinite; }
   @keyframes heroRingSpin { to { transform:rotate(360deg); } }
-  .hero-scroll-chevron { font-size:14px; animation:heroChevronBounce 2s ease-in-out infinite; }
+  .hero-scroll-chevron { font-size:16px; animation:heroChevronBounce 2s ease-in-out infinite; }
   @keyframes heroChevronBounce { 0%,100% { transform:translateY(0); opacity:0.5; } 50% { transform:translateY(5px); opacity:1; } }
   .resume-backdrop { animation:resumeFadeIn 0.25s ease; }
   .resume-modal { animation:resumeSlideIn 0.35s cubic-bezier(0.22,1,0.36,1); }
@@ -813,8 +822,8 @@ const css = `
     .hero-main-heading { font-size: clamp(40px, 8.5vw, 68px) !important; line-height: 1.05 !important; text-align: left !important; }
     .hero-sub { margin-bottom:32px !important; max-width:440px !important; margin-left: 0 !important; margin-right: auto !important; }
     .hero-ctas { justify-content:flex-start !important; gap:14px 18px !important; width: 100% !important; flex-direction: row !important; flex-wrap: wrap !important; }
-    .hero-meta { margin-top:8px !important; padding-top:24px !important; border-top:1px solid #1a1a1a !important; gap:12px !important; width:100% !important; display:grid !important; grid-template-columns:repeat(3, minmax(0, 1fr)) !important; border-left: none !important; padding-left: 0 !important; justify-items: start !important; }
-    .hero-meta .meta-item { align-items: flex-start !important; text-align: left !important; }
+    .hero-meta { margin-top:8px !important; padding-top:24px !important; border-top:1px solid #1a1a1a !important; gap:16px !important; width:100% !important; display:grid !important; grid-template-columns:repeat(3, minmax(100px, 1fr)) !important; border-left: none !important; padding-left: 0 !important; justify-items: center !important; }
+    .hero-meta .meta-item { align-items: center !important; text-align:center !important; }
 
     /* About Responsive Corrections */
     .aboutInner { grid-template-columns:1fr !important; gap:48px !important; text-align:left !important; }
